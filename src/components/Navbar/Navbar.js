@@ -7,11 +7,13 @@ import {
   NavLeftSide,
   NavRightSide,
   SearchContainer,
-  CarencyExchangeContainer,
   ThemeIconContainer,
   SearchInput,
   SearchForm,
+  DropdownContainer,
+  DropdownCurrency,
 } from "./Navbar.styles";
+import getCurrencySymbol from "../../utils/getCurrencySymbol";
 import SearchIcon from "../../assets/SearchIcon";
 import ThemeIcon from "../../assets/ThemeIcon";
 
@@ -21,12 +23,8 @@ const Navbar = () => {
       <Nav>
         <NavbarContainer>
           <NavLeftSide>
-            <NavLink to="/CoinPage" activeStyle>
-              CoinPage
-            </NavLink>
-            <NavLink to="/Portfolio" activeStyle>
-              Portfolio
-            </NavLink>
+            <NavLink to="/">CoinPage</NavLink>
+            <NavLink to="/Portfolio">Portfolio</NavLink>
           </NavLeftSide>
           <NavRightSide>
             <SearchContainer>
@@ -35,7 +33,20 @@ const Navbar = () => {
                 <SearchInput type="text" placeholder="Search..." />
               </SearchForm>
             </SearchContainer>
-            <CarencyExchangeContainer></CarencyExchangeContainer>
+            <DropdownContainer>
+              <span>
+                <p>$</p>
+              </span>
+              <DropdownCurrency>
+                <select>
+                  <option value={"usd"}>USD</option>
+                  <option value={"eur"}>EUR</option>
+                  <option value={"btc"}>BTC</option>
+                  <option value={"eth"}>ETH</option>
+                  <option value={"gbp"}>GBP</option>
+                </select>
+              </DropdownCurrency>
+            </DropdownContainer>
             <ThemeIconContainer>
               <ThemeIcon />
             </ThemeIconContainer>

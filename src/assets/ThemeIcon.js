@@ -4,8 +4,8 @@ function ThemeIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20.833"
-      height="26.352"
+      width="23.833"
+      height="23.352"
       viewBox="0 0 24.833 30.352"
     >
       <g

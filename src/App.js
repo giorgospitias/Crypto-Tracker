@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import CoinPage from "./pages/CoinPage/CoinPage";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Navbar from "./components/Navbar/Navbar";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Routes>
-        <Route path="/" exact component={CoinPage} />
-        <Route path="Portfolio" component={Portfolio} />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/Coins" element={<CoinPage />} />
+        <Route path="/Portfolio" element={<Portfolio />} />
       </Routes>
     </>
   );

@@ -4,8 +4,8 @@ function SearchIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="21.357"
-      height="21.357"
+      width="17.357"
+      height="17.357"
       viewBox="0 0 21.357 21.357"
     >
       <g
