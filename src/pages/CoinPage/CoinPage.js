@@ -1,7 +1,7 @@
 import React from "react";
 
 function CoinPage() {
-  return <div>CoinPage</div>;
+  return <h1>CoinPage</h1>;
 }
 
 export default CoinPage;

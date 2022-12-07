@@ -1,30 +1,33 @@
-import { FaBars } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
   position: relative;
   z-index: 1;
-  height: 40px;
-  width: 100%;
-  background: #ff9;
   display: flex;
-  justify-content: center;
   align-items: center;
+  color: rgb(255, 255, 255);
+  height: 60px;
+  background-color: rgb(25, 27, 31);
+  padding: 10px;
+  width: 100%;
+}
 `;
 
 export const NavbarContainer = styled.div`
-display: flex;
-background:  rgb(25, 27, 31);
-justify-content: space-between;
-width:95%;
-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    height: 60px;
+    background-color: rgb(25, 27, 31);
+    padding: 10px;
+    width: 100%;
 
   }
 `;
 
 export const NavLeftSide = styled.div`
-  background: #ff2;
   display: flex;
 `;
 
@@ -32,15 +35,61 @@ export const NavRightSide = styled.div`
   display: flex;
 `;
 
+export const SearchContainer = styled.div`
+  width: 200px;
+  padding: 8.13px 0px;
+  display: flex;
+  justify-content: center;
+
+  border-radius: 8px;
+  background-color: rgb(44, 47, 54);
+`;
+
+export const SearchForm = styled.form`
+  display: flex;
+  alighn-items: center;
+  margin-left: 5px;
+`;
+
+export const SearchInput = styled.input`
+padding: 0px 10px;
+font-size: 14px;
+color: white;
+background-color: transparent;
+outline: none;
+border: none;
+width: 100%;
+height: 100%;
+}
+`;
+
+export const CarencyExchangeContainer = styled.div``;
+
+export const ThemeIconContainer = styled.div`
+  width: 50px;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: rgb(44, 47, 54);
+  margin: 0px 10px;
+`;
+
 export const NavLink = styled(Link)`
   color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
-  &.active {
-    color: #15cdfc;
+  color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0px 10px;
+    width: 120px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    &.active {
+      background-color: rgb(44, 47, 54);
+    }
   }
 `;
