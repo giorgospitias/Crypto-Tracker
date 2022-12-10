@@ -17,7 +17,7 @@ import getCurrencySymbol from "../../utils/getCurrencySymbol";
 import SearchIcon from "../../assets/SearchIcon";
 import ThemeIcon from "../../assets/ThemeIcon";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <>
       <Nav>
@@ -47,7 +47,7 @@ const Navbar = () => {
                 </select>
               </DropdownCurrency>
             </DropdownContainer>
-            <ThemeIconContainer>
+            <ThemeIconContainer onClick={props.toggleTheme}>
               <ThemeIcon />
             </ThemeIconContainer>
           </NavRightSide>

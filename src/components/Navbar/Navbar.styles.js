@@ -6,10 +6,9 @@ export const Nav = styled.nav`
   z-index: 1;
   display: flex;
   align-items: center;
-  color: rgb(255, 255, 255);
+  color: ${(props) => props.theme.main};
   height: 60px;
-  background-color: rgb(25, 27, 31);
-  padding: 10px;
+  padding: 10px 0px;
   width: 100%;
 }
 `;
@@ -18,9 +17,9 @@ export const NavbarContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: rgb(255, 255, 255);
+    
     height: 60px;
-    background-color: rgb(25, 27, 31);
+    background-color: ${(props) => props.theme.insideColor};
     padding: 10px ;
     width: 100%;
 
@@ -32,8 +31,7 @@ export const NavLeftSide = styled.div`
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
-  color: rgb(255, 255, 255);
+    color:${(props) => props.theme.textColor};
     text-decoration: none;
     margin: 0px 10px;
     padding: 10px 0;
@@ -46,7 +44,7 @@ export const NavLink = styled(Link)`
     
     
     &.active {
-      background-color: rgb(44, 47, 54);
+      background-color: ${(props) => props.theme.main};
     }
   }
 `;
@@ -61,7 +59,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   border-radius: 8px;
-  background-color: rgb(44, 47, 54);
+  background-color: ${(props) => props.theme.main};
 `;
 
 export const SearchForm = styled.form`
@@ -89,13 +87,14 @@ export const DropdownContainer = styled.div`
   border-radius: 8px;
   margin: 0 15px;
   padding-left: 3px;
-  background: rgb(44, 47, 54);
+  background: ${(props) => props.theme.main};
 
   select {
     font-size: 12px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(44, 47, 54);
-    border: 1px solid rgb(44, 47, 54);
+    color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.main};
+    border: 1px solid;
+    border-color: ${(props) => props.theme.main};
     cursor: pointer;
     appearance: none;
 
@@ -141,5 +140,6 @@ export const ThemeIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: rgb(44, 47, 54);
+  cursor: pointer;
+  background-color: ${(props) => props.theme.main};
 `;
