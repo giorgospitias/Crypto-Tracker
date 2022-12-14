@@ -10,7 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import { darkTheme, lightTheme } from "./styles/themes";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");

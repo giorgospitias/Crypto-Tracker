@@ -30,7 +30,7 @@ export const NavLeftSide = styled.div`
   display: flex;
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled(Link)` 
     color:${(props) => props.theme.textColor};
     text-decoration: none;
     margin: 0px 10px;
@@ -71,7 +71,7 @@ export const SearchForm = styled.form`
 export const SearchInput = styled.input`
 padding: 0px 10px;
 font-size: 14px;
-color: white;
+color: ${(props) => props.theme.textColor};
 background-color: transparent;
 outline: none;
 border: none;
