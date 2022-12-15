@@ -1,15 +1,23 @@
 import React from "react";
-import { TableDataElement } from "./TableData.styled";
+import { priceFormat } from "../../../utils/numberFormat";
+import { TableDataElement, TableDataRow, CoinLink } from "./TableData.styled";
 
 function TableData(props) {
   return (
     <>
-      <tr>
+      <TableDataRow>
         <TableDataElement>{props.coins.market_cap_rank}</TableDataElement>
         <TableDataElement>
-          {props.coins.name} ({props.coins.symbol})
+          <CoinLink to={`/coins/${props.coins.id}`}>
+            <img src={props.coins.image} alt="coins" height={30} />
+            <p>
+              {props.coins.name} ({props.coins.symbol.toUpperCase()})
+            </p>
+          </CoinLink>
         </TableDataElement>
-        <TableDataElement>{props.coins.current_price}</TableDataElement>
+        <TableDataElement>
+          {priceFormat(props.coins.current_price)}
+        </TableDataElement>
         <TableDataElement>
           {props.coins.price_change_percentage_1h_in_currency}
         </TableDataElement>
@@ -22,7 +30,7 @@ function TableData(props) {
         <TableDataElement>{props.coins.market_cap_rank}</TableDataElement>
         <TableDataElement>{props.coins.market_cap_rank}</TableDataElement>
         <TableDataElement>{props.coins.market_cap_rank}</TableDataElement>
-      </tr>
+      </TableDataRow>
     </>
   );
 }

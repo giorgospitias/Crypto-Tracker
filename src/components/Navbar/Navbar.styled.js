@@ -6,10 +6,11 @@ export const Nav = styled.nav`
   z-index: 1;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.main};
+  
   height: 60px;
   padding: 10px 0px;
   width: 100%;
+  margin-bottom:10px;
 }
 `;
 
@@ -44,7 +45,7 @@ export const NavLink = styled(Link)`
     
     
     &.active {
-      background-color: ${(props) => props.theme.main};
+      background-color: ${(props) => props.theme.navInside};
     }
   }
 `;
@@ -59,7 +60,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.main};
+  background-color: ${(props) => props.theme.navInside};
 `;
 
 export const SearchForm = styled.form`
@@ -87,14 +88,14 @@ export const DropdownContainer = styled.div`
   border-radius: 8px;
   margin: 0 15px;
   padding-left: 3px;
-  background: ${(props) => props.theme.main};
+  background: ${(props) => props.theme.navInside};
 
   select {
     font-size: 12px;
     color: ${(props) => props.theme.textColor};
-    background-color: ${(props) => props.theme.main};
+    background-color: ${(props) => props.theme.navInside};
     border: 1px solid;
-    border-color: ${(props) => props.theme.main};
+    border-color: ${(props) => props.theme.navInside};
     cursor: pointer;
     appearance: none;
 
@@ -141,5 +142,5 @@ export const ThemeIconContainer = styled.div`
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
-  background-color: ${(props) => props.theme.main};
+  background-color: ${(props) => props.theme.navInside};
 `;

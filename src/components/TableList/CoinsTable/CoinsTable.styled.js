@@ -4,19 +4,27 @@ export const TableContainer = styled.div`
   background-color: ${(props) => props.theme.insideColor};
   border-radius: 10px;
   margin: auto;
-  width: 90%;
-  padding: 10px;
+  width: 80%;
+  padding: 0px 20px;
 `;
 
 export const DataTableContainer = styled.table`
   width: 100%;
-  border-top: 1px solid red;
+  font-size: 12px;
+
   margin-top: 0;
   padding: 20px;
   height: 100px;
+  text-align: left;
+  border-collapse: collapse;
 `;
 
-export const TableHead = styled.thead``;
+export const TableHead = styled.thead`
+  height: 50px;
+  border-bottom: solid 1px grey;
+  font-size: 12px;
+  font-weight: 500;
+`;
 
 export const TableHeadRow = styled.tr``;
 

@@ -13,7 +13,7 @@ import {
   DropdownContainer,
   DropdownCurrency,
 } from "./Navbar.styled";
-import getCurrencySymbol from "../../utils/getCurrencySymbol";
+
 import SearchIcon from "../../assets/SearchIcon";
 import ThemeIcon from "../../assets/ThemeIcon";
 

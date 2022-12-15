@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Poppins, Georgia, sans-serif;
+        font-family:Poppins, Georgia, sans-serif;
         background-color:$(pros=>props.theme.main)
     }
 
