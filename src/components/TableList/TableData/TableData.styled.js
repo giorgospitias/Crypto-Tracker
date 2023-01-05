@@ -10,6 +10,38 @@ export const TableDataElement = styled.td`
   padding: 16px 16px 16px 0px;
   border-bottom: solid 1px grey;
 `;
+export const TableDataInenerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+`;
+
+export const ArrowsContainer = styled.div`
+  margin-right: 5px;
+`;
+export const DataTotalCoinWrapper = styled.div`
+  margin-right: 40px;
+`;
+
+export const LargeNumberWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const SliderBarWraper = styled.div`
+  background-color: #2751ea;
+  height: 6px;
+  width: 100%;
+`;
+
+export const SliderBar = styled.div`
+  background-color: #ffffff;
+  height: 100%;
+  border-radius: 10px;
+  width: ${(props) => props.width}%;
+  border: 1px solid ${(props) => props.theme.color};
+`;
 
 export const CoinLink = styled(Link)`
   display: flex;

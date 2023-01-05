@@ -1,0 +1,28 @@
+import React, { createContext, useContext, useEffect, useState } from "react";
+
+const Crypto = createContext();
+
+const CryptoContext = ({ children }) => {
+  const [currency, setCurrency] = useState("eur");
+  const [symbol, setSymbol] = useState("€");
+
+  useEffect(() => {
+    if (currency === "gbp") setSymbol("£");
+    else if (currency === "usd") setSymbol("$");
+    else if (currency === "eur") setSymbol("€");
+    else if (currency === "btc") setSymbol("₿");
+    else if (currency === "eth") setSymbol("Ξ");
+  }, [currency]);
+
+  return (
+    <Crypto.Provider value={{ currency, setCurrency, symbol }}>
+      {children}
+    </Crypto.Provider>
+  );
+};
+
+export default CryptoContext;
+
+export const CryptoState = () => {
+  return useContext(Crypto);
+};

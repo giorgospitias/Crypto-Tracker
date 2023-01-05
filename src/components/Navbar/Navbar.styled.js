@@ -1,6 +1,11 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const NavBarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Nav = styled.nav`
   position: relative;
   z-index: 1;
@@ -10,7 +15,8 @@ export const Nav = styled.nav`
   height: 60px;
   padding: 10px 0px;
   width: 100%;
-  margin-bottom:10px;
+  
+  
 }
 `;
 
