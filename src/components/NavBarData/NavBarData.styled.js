@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MarketDataWrapper = styled.div`
+export const NavbarDataContainer = styled.div`
   margin: auto;
   width: 50%;
   padding: 10px 20px;
@@ -14,7 +14,7 @@ export const MarketDataWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-export const InnerWrapper = styled.div`
+export const InnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@ export const LogoIcon = styled.img`
   height: 15px;
 `;
 
-export const SliderBarWraper = styled.div`
+export const SliderBarContainer = styled.div`
   background-color: #2751ea;
   height: 6px;
   width: 40px;

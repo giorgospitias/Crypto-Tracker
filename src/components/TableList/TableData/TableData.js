@@ -12,8 +12,8 @@ import {
   ArrowsContainer,
   TableDataInenerContainer,
   DataTotalCoinWrapper,
-  LargeNumberWrapper,
-  SliderBarWraper,
+  LargeNumberContainer,
+  SliderBarContainer,
   SliderBar,
 } from "./TableData.styled";
 import { CryptoState } from "../../../CryptoContext";
@@ -47,9 +47,8 @@ function TableData(props) {
             </ArrowsContainer>
             <p>
               {percentageFormat(
-                Math.abs(props.coins.price_change_percentage_1h_in_currency)
+                props.coins.price_change_percentage_1h_in_currency
               )}
-              %
             </p>
           </TableDataInenerContainer>
         </TableDataElement>
@@ -64,9 +63,8 @@ function TableData(props) {
             </ArrowsContainer>
             <p>
               {percentageFormat(
-                Math.abs(props.coins.price_change_percentage_24h_in_currency)
+                props.coins.price_change_percentage_24h_in_currency
               )}
-              %
             </p>
           </TableDataInenerContainer>
         </TableDataElement>
@@ -81,49 +79,48 @@ function TableData(props) {
             </ArrowsContainer>
             <p>
               {percentageFormat(
-                Math.abs(props.coins.price_change_percentage_7d_in_currency)
+                props.coins.price_change_percentage_7d_in_currency
               )}
-              %
             </p>
           </TableDataInenerContainer>
         </TableDataElement>
         <TableDataElement>
           <DataTotalCoinWrapper>
-            <LargeNumberWrapper>
+            <LargeNumberContainer>
               <p>{largeNumberFormat(props.coins.total_volume).toUpperCase()}</p>
               <p>{largeNumberFormat(props.coins.market_cap).toUpperCase()}</p>
-            </LargeNumberWrapper>
-            <SliderBarWraper>
+            </LargeNumberContainer>
+            <SliderBarContainer>
               <SliderBar
                 width={
                   (props.coins.total_volume / props.coins.market_cap) * 100
                 }
               ></SliderBar>
-            </SliderBarWraper>
+            </SliderBarContainer>
           </DataTotalCoinWrapper>
         </TableDataElement>
         <TableDataElement>
-          {" "}
           <DataTotalCoinWrapper>
-            <LargeNumberWrapper>
+            <LargeNumberContainer>
               <p>
                 {largeNumberFormat(
                   props.coins.circulating_supply
                 ).toUpperCase()}
               </p>
               <p>{largeNumberFormat(props.coins.total_supply).toUpperCase()}</p>
-            </LargeNumberWrapper>
+            </LargeNumberContainer>
+
+            <SliderBarContainer>
+              <SliderBar
+                width={
+                  (props.coins.circulating_supply / props.coins.total_supply) *
+                  100
+                }
+              ></SliderBar>
+            </SliderBarContainer>
           </DataTotalCoinWrapper>
-          <SliderBarWraper>
-            <SliderBar
-              width={
-                (props.coins.circulating_supply / props.coins.total_supply) *
-                100
-              }
-            ></SliderBar>
-          </SliderBarWraper>
         </TableDataElement>
-        <TableDataElement>{props.coins.market_cap_rank}</TableDataElement>
+        <TableDataElement>------------------------</TableDataElement>
       </TableDataRow>
     </>
   );

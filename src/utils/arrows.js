@@ -5,7 +5,7 @@ export const ArrowUp = styled.div`
   height: 0px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-bottom:4px solid rgb(0, 252, 42);;
+  border-bottom:4px solid rgb(0, 252, 42);
   margin-bottom: 2px: 
 `;
 

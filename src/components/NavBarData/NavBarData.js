@@ -5,10 +5,10 @@ import ethLogo from "../../assets/ethereum-logo.png";
 import { largeNumberFormat } from "../../utils/numberFormat";
 import { Dot } from "../../utils/arrows";
 import {
-  MarketDataWrapper,
-  InnerWrapper,
+  NavbarDataContainer,
+  InnerContainer,
   InnerText,
-  SliderBarWraper,
+  SliderBarContainer,
   SliderBar,
   LogoIcon,
 } from "./NavBarData.styled";
@@ -17,13 +17,9 @@ import { CryptoState } from "../../CryptoContext";
 const NavBarData = () => {
   const [data, setData] = useState([]);
   const { currency, symbol } = CryptoState();
-  {
-    /*} https://api.coingecko.com/api/v3/global*/
-  }
-  console.log(currency);
+
   const fetchCoins = async () => {
     const { data } = await axios.get(`https://api.coingecko.com/api/v3/global`);
-
     console.log(data);
     setData(data);
   };
@@ -34,57 +30,55 @@ const NavBarData = () => {
 
   return (
     <>
-      <MarketDataWrapper>
-        <InnerWrapper>
-          <InnerText>Coins {data?.data?.active_cryptocurrencies}</InnerText>
-        </InnerWrapper>
-        <InnerWrapper>
-          <InnerText>Exchange {data?.data?.markets}</InnerText>
-        </InnerWrapper>
-        <InnerWrapper>
+      <NavbarDataContainer>
+        <InnerContainer>
+          <InnerText>Coins {data.data?.active_cryptocurrencies}</InnerText>
+        </InnerContainer>
+        <InnerContainer>
+          <InnerText>Exchange {data.data?.markets}</InnerText>
+        </InnerContainer>
+        <InnerContainer>
           <Dot />
           <InnerText>
             {symbol}
             {largeNumberFormat(
-              data?.data?.total_market_cap[currency]
+              data.data?.total_market_cap[currency]
             ).toUpperCase()}
           </InnerText>
-        </InnerWrapper>
-        <InnerWrapper>
+        </InnerContainer>
+        <InnerContainer>
           <Dot />
           <InnerText>
             {symbol}
-            {largeNumberFormat(
-              data?.data?.total_volume[currency]
-            ).toUpperCase()}
+            {largeNumberFormat(data.data?.total_volume[currency]).toUpperCase()}
           </InnerText>
-          <SliderBarWraper>
+          <SliderBarContainer>
             <SliderBar width={largeNumberFormat(data?.data?.totalVolume)} />
-          </SliderBarWraper>
-        </InnerWrapper>
-        <InnerWrapper>
+          </SliderBarContainer>
+        </InnerContainer>
+        <InnerContainer>
           <LogoIcon src={btcLogo} alt="bitcoin-logo" />
           <InnerText>
-            {Math.round(data?.data?.market_cap_percentage.btc)}%
+            {Math.round(data.data?.market_cap_percentage.btc)}%
           </InnerText>
-          <SliderBarWraper>
+          <SliderBarContainer>
             <SliderBar
-              width={Math.round(data?.data?.market_cap_percentage.btc)}
+              width={Math.round(data.data?.market_cap_percentage?.btc)}
             />
-          </SliderBarWraper>
-        </InnerWrapper>
-        <InnerWrapper>
+          </SliderBarContainer>
+        </InnerContainer>
+        <InnerContainer>
           <LogoIcon src={ethLogo} alt="ethereum-logo" />
           <InnerText>
-            {Math.round(data?.data?.market_cap_percentage.eth)}%
+            {Math.round(data.data?.market_cap_percentage.eth)}%
           </InnerText>
-          <SliderBarWraper>
+          <SliderBarContainer>
             <SliderBar
-              width={Math.round(data?.data?.market_cap_percentage.eth)}
+              width={Math.round(data.data?.market_cap_percentage.eth)}
             />
-          </SliderBarWraper>
-        </InnerWrapper>
-      </MarketDataWrapper>
+          </SliderBarContainer>
+        </InnerContainer>
+      </NavbarDataContainer>
     </>
   );
 };

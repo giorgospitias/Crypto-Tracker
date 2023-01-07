@@ -13,7 +13,7 @@ export const TableDataElement = styled.td`
 export const TableDataInenerContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 10px;
+  margin-right: 10px;
 `;
 
 export const ArrowsContainer = styled.div`
@@ -23,13 +23,13 @@ export const DataTotalCoinWrapper = styled.div`
   margin-right: 40px;
 `;
 
-export const LargeNumberWrapper = styled.span`
+export const LargeNumberContainer = styled.span`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const SliderBarWraper = styled.div`
+export const SliderBarContainer = styled.div`
   background-color: #2751ea;
   height: 6px;
   width: 100%;
