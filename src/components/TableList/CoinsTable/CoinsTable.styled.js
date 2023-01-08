@@ -40,3 +40,46 @@ export const TableBody = styled.tbody`
   width: 100%;
   text-align: left;
 `;
+
+export const PageSelectorWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+`;
+
+export const PageSelector = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+export const SmallLeftNuetralArrow = styled.div`
+  width: 0;
+  height: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid ${(props) => props.theme.color};
+  border-top: 4px solid transparent;
+  :hover {
+    cursor: pointer;
+  }
+`;
+export const SmallRightNuetralArrow = styled.div`
+  width: 0;
+  height: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid ${(props) => props.theme.textColor};
+  border-right: 4px solid transparent;
+  border-top: 4px solid transparent;
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+export const CoinTableRowText = styled.p`
+  font-size: 15px;
+  font-weight: regular;
+  line-height: 0;
+`;

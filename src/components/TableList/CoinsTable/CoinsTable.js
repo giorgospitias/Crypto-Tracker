@@ -8,6 +8,11 @@ import {
   TableHeadData,
   TableHeadRow,
   LoaderContainer,
+  PageSelectorWrapper,
+  PageSelector,
+  SmallLeftNuetralArrow,
+  SmallRightNuetralArrow,
+  CoinTableRowText,
 } from "./CoinsTable.styled";
 import { Bars } from "react-loader-spinner";
 import TableData from "../TableData/TableData";
@@ -15,14 +20,22 @@ import { CryptoState } from "../../../CryptoContext";
 
 function CoinsTable() {
   const [coins, setCoins] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
 
   const { currency, setLoading, loading } = CryptoState();
+
+  const handlePageClick = (direction) =>
+    direction === "+1"
+      ? setCurrentPage(currentPage + 1)
+      : setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
+  console.log(currentPage);
 
   useEffect(() => {
     setLoading(true);
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${itemsPerPage}&page=${currentPage}&sparkline=true&price_change_percentage=1h%2C24h%2C7d`
       )
       .then((response) => {
         setCoins(response.data);
@@ -33,7 +46,7 @@ function CoinsTable() {
       .catch((error) => {
         console.log(error);
       });
-  }, [currency]);
+  }, [currency, currentPage]);
 
   return (
     <>
@@ -66,13 +79,21 @@ function CoinsTable() {
               </TableHeadRow>
             </TableHead>
             <TableBody>
-              {coins.map((coins, id, index) => (
+              {coins.map((coins, id) => (
                 <TableData coins={coins} key={id} />
               ))}
             </TableBody>
           </DataTableContainer>
         )}
       </TableContainer>
+      <PageSelectorWrapper>
+        <CoinTableRowText>Page:</CoinTableRowText>
+        <PageSelector>
+          <SmallLeftNuetralArrow onClick={() => handlePageClick("-1")} />
+          {currentPage}
+          <SmallRightNuetralArrow onClick={() => handlePageClick("+1")} />
+        </PageSelector>
+      </PageSelectorWrapper>
     </>
   );
 }
