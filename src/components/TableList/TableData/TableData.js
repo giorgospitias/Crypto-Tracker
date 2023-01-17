@@ -17,6 +17,7 @@ import {
   SliderBar,
 } from "./TableData.styled";
 import { CryptoState } from "../../../CryptoContext";
+import TableChart from "../TableChart/TableChart";
 
 function TableData(props) {
   const { symbol } = CryptoState();
@@ -39,10 +40,10 @@ function TableData(props) {
         <TableDataElement>
           <TableDataInenerContainer>
             <ArrowsContainer>
-              {props.coins.price_change_percentage_1h_in_currency > 0 ? (
-                <ArrowUp />
-              ) : (
+              {props.coins.price_change_percentage_1h_in_currency <= 0 ? (
                 <ArrowDown />
+              ) : (
+                <ArrowUp />
               )}
             </ArrowsContainer>
             <p>
@@ -55,10 +56,10 @@ function TableData(props) {
         <TableDataElement>
           <TableDataInenerContainer>
             <ArrowsContainer>
-              {props.coins.price_change_percentage_24h_in_currency > 0 ? (
-                <ArrowUp />
-              ) : (
+              {props.coins.price_change_percentage_24h_in_currency <= 0 ? (
                 <ArrowDown />
+              ) : (
+                <ArrowUp />
               )}
             </ArrowsContainer>
             <p>
@@ -71,10 +72,10 @@ function TableData(props) {
         <TableDataElement>
           <TableDataInenerContainer>
             <ArrowsContainer>
-              {props.coins.price_change_percentage_7d_in_currency > 0 ? (
-                <ArrowUp />
-              ) : (
+              {props.coins.price_change_percentage_7d_in_currency <= 0 ? (
                 <ArrowDown />
+              ) : (
+                <ArrowUp />
               )}
             </ArrowsContainer>
             <p>
@@ -120,7 +121,9 @@ function TableData(props) {
             </SliderBarContainer>
           </DataTotalCoinWrapper>
         </TableDataElement>
-        <TableDataElement>------------------------</TableDataElement>
+        <TableDataElement>
+          <TableChart chartPrices={props.coins.sparkline_in_7d.price} />
+        </TableDataElement>
       </TableDataRow>
     </>
   );

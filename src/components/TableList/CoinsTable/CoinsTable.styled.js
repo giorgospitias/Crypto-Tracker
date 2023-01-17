@@ -14,6 +14,15 @@ export const TableContainer = styled.div`
   padding: 0px 20px;
 `;
 
+export const ChartHeaderText = styled.h1`
+  font-size: 30px;
+  font-weight: semi-bold;
+  line-height: 10%;
+  @media (max-width: 900px) {
+    font-size: 28px;
+  }
+`;
+
 export const DataTableContainer = styled.table`
   width: 100%;
   font-size: 12px;
@@ -39,6 +48,15 @@ export const TableHeadData = styled.th``;
 export const TableBody = styled.tbody`
   width: 100%;
   text-align: left;
+`;
+
+export const TableNavContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 `;
 
 export const PageSelectorWrapper = styled.div`
