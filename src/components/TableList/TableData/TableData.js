@@ -21,6 +21,44 @@ import TableChart from "../TableChart/TableChart";
 
 function TableData(props) {
   const { symbol } = CryptoState();
+  const id = props.coins.market_cap_rank;
+  console.log(id);
+  const progressBarColors = {
+    pair1: {
+      color1: "#FFB528",
+      color2: "#FEE158",
+    },
+    pair2: {
+      color1: "#474C77",
+      color2: "#8A92B2",
+    },
+    pair3: {
+      color1: "#1A6C55",
+      color2: "#1BA27A",
+    },
+    pair4: {
+      color1: "#BB9F33",
+      color2: "#E4CD82",
+    },
+    pair5: {
+      color1: "#98009D",
+      color2: "#985D9D",
+    },
+    pair6: {
+      color1: "#FE7D43",
+      color2: "#FFDCCE",
+    },
+    pair7: {
+      color1: "#1D327D",
+      color2: "#2775C9",
+    },
+  };
+
+  const generateColors = (id) => {
+    return Object.values(progressBarColors)[
+      id % Object.keys(progressBarColors).length
+    ];
+  };
   return (
     <>
       <TableDataRow>
@@ -88,11 +126,16 @@ function TableData(props) {
         <TableDataElement>
           <DataTotalCoinWrapper>
             <LargeNumberContainer>
-              <p>{largeNumberFormat(props.coins.total_volume).toUpperCase()}</p>
-              <p>{largeNumberFormat(props.coins.market_cap).toUpperCase()}</p>
+              <p style={{ color: `${generateColors(id).color2}` }}>
+                {largeNumberFormat(props.coins.total_volume).toUpperCase()}
+              </p>
+              <p style={{ color: `${generateColors(id).color1}` }}>
+                {largeNumberFormat(props.coins.market_cap).toUpperCase()}
+              </p>
             </LargeNumberContainer>
-            <SliderBarContainer>
+            <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
               <SliderBar
+                secondColor={`${generateColors(id).color2}`}
                 width={
                   (props.coins.total_volume / props.coins.market_cap) * 100
                 }
@@ -103,16 +146,19 @@ function TableData(props) {
         <TableDataElement>
           <DataTotalCoinWrapper>
             <LargeNumberContainer>
-              <p>
+              <p style={{ color: `${generateColors(id).color2}` }}>
                 {largeNumberFormat(
                   props.coins.circulating_supply
                 ).toUpperCase()}
               </p>
-              <p>{largeNumberFormat(props.coins.total_supply).toUpperCase()}</p>
+              <p style={{ color: `${generateColors(id).color1}` }}>
+                {largeNumberFormat(props.coins.total_supply).toUpperCase()}
+              </p>
             </LargeNumberContainer>
 
-            <SliderBarContainer>
+            <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
               <SliderBar
+                secondColor={`${generateColors(id).color2}`}
                 width={
                   (props.coins.circulating_supply / props.coins.total_supply) *
                   100

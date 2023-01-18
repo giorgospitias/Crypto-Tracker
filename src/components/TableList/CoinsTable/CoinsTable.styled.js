@@ -62,7 +62,7 @@ export const TableNavContainer = styled.div`
 export const PageSelectorWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
 `;
@@ -70,7 +70,7 @@ export const PageSelectorWrapper = styled.div`
 export const PageSelector = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 `;
 
 export const SmallLeftNuetralArrow = styled.div`

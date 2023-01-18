@@ -19,6 +19,7 @@ import {
 import { Bars } from "react-loader-spinner";
 import TableData from "../TableData/TableData";
 import { CryptoState } from "../../../CryptoContext";
+import CoinsPerPage from "../CoinsPerPage/CoinsPerPage";
 
 function CoinsTable() {
   const [coins, setCoins] = useState([]);
@@ -49,12 +50,18 @@ function CoinsTable() {
         console.log(error);
       });
   }, [currency, currentPage]);
+  console.log(coins);
 
   return (
     <>
       <TableContainer>
         <TableNavContainer>
           <ChartHeaderText>Top Coins by Market Cap</ChartHeaderText>
+          <PageSelectorWrapper>
+            <CoinTableRowText>Show:</CoinTableRowText>
+
+            <CoinsPerPage />
+          </PageSelectorWrapper>
           <PageSelectorWrapper>
             <CoinTableRowText>Page:</CoinTableRowText>
             <PageSelector>

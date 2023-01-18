@@ -21,6 +21,7 @@ export const ArrowsContainer = styled.div`
 `;
 export const DataTotalCoinWrapper = styled.div`
   margin-right: 40px;
+  padding-bottom: 18px;
 `;
 
 export const LargeNumberContainer = styled.span`
@@ -30,17 +31,17 @@ export const LargeNumberContainer = styled.span`
 `;
 
 export const SliderBarContainer = styled.div`
-  background-color: #2751ea;
+  background-color: ${(props) => props.firstColor};
   height: 6px;
   width: 100%;
+  border-radius: 10px;
 `;
 
 export const SliderBar = styled.div`
-  background-color: #ffffff;
+  background-color: ${(props) => props.secondColor};
   height: 100%;
   border-radius: 10px;
   width: ${(props) => props.width}%;
-  border: 1px solid ${(props) => props.theme.color};
 `;
 
 export const CoinLink = styled(Link)`
