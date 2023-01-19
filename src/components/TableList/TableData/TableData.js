@@ -48,7 +48,7 @@ function TableData(props) {
         <TableDataElement>
           <TableDataInenerContainer>
             <ArrowsContainer>
-              {props.coins.price_change_percentage_1h_in_currency <= 0 ? (
+              {props.coins.price_change_percentage_1h_in_currency <= 0.001 ? (
                 <ArrowDown />
               ) : (
                 <ArrowUp />

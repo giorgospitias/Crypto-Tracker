@@ -26,6 +26,7 @@ export const TableHeaderTextSmall = styled.span`
   font-size: 15px;
   font-weight: 700;
   line-height: 10%;
+  margin-left: 10px;
   @media (max-width: 900px) {
     font-size: 13px;
   }
@@ -108,4 +109,5 @@ export const CoinTableRowText = styled.p`
   font-size: 15px;
   font-weight: 600;
   line-height: 0;
+  margin-left: 10px;
 `;

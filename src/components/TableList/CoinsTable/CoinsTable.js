@@ -57,7 +57,7 @@ function CoinsTable() {
       <TableContainer>
         <TableNavContainer>
           <TableHeaderText>
-            Top {itemsPerPage}{" "}
+            Top {itemsPerPage * currentPage}
             <TableHeaderTextSmall>by Market Cap</TableHeaderTextSmall>
           </TableHeaderText>
           <PageSelectorWrapper>
