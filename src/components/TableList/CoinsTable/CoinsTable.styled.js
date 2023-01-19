@@ -14,12 +14,20 @@ export const TableContainer = styled.div`
   padding: 0px 20px;
 `;
 
-export const ChartHeaderText = styled.h1`
-  font-size: 30px;
-  font-weight: semi-bold;
+export const TableHeaderText = styled.h1`
+  font-size: 28px;
+  font-weight: 700;
   line-height: 10%;
   @media (max-width: 900px) {
     font-size: 28px;
+  }
+`;
+export const TableHeaderTextSmall = styled.span`
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 10%;
+  @media (max-width: 900px) {
+    font-size: 13px;
   }
 `;
 
@@ -98,6 +106,6 @@ export const SmallRightNuetralArrow = styled.div`
 
 export const CoinTableRowText = styled.p`
   font-size: 15px;
-  font-weight: regular;
+  font-weight: 600;
   line-height: 0;
 `;

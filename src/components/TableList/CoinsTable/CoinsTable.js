@@ -14,7 +14,8 @@ import {
   SmallLeftNuetralArrow,
   SmallRightNuetralArrow,
   CoinTableRowText,
-  ChartHeaderText,
+  TableHeaderText,
+  TableHeaderTextSmall,
 } from "./CoinsTable.styled";
 import { Bars } from "react-loader-spinner";
 import TableData from "../TableData/TableData";
@@ -24,9 +25,8 @@ import CoinsPerPage from "../CoinsPerPage/CoinsPerPage";
 function CoinsTable() {
   const [coins, setCoins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  const { currency, setLoading, loading } = CryptoState();
+  const { currency, setLoading, loading, itemsPerPage } = CryptoState();
 
   const handlePageClick = (direction) =>
     direction === "+1"
@@ -49,21 +49,21 @@ function CoinsTable() {
       .catch((error) => {
         console.log(error);
       });
-  }, [currency, currentPage]);
+  }, [currency, currentPage, itemsPerPage, setLoading]);
   console.log(coins);
 
   return (
     <>
       <TableContainer>
         <TableNavContainer>
-          <ChartHeaderText>Top Coins by Market Cap</ChartHeaderText>
+          <TableHeaderText>
+            Top {itemsPerPage}{" "}
+            <TableHeaderTextSmall>by Market Cap</TableHeaderTextSmall>
+          </TableHeaderText>
           <PageSelectorWrapper>
-            <CoinTableRowText>Show:</CoinTableRowText>
-
+            <CoinTableRowText>SHOW:</CoinTableRowText>
             <CoinsPerPage />
-          </PageSelectorWrapper>
-          <PageSelectorWrapper>
-            <CoinTableRowText>Page:</CoinTableRowText>
+            <CoinTableRowText>PAGE:</CoinTableRowText>
             <PageSelector>
               <SmallLeftNuetralArrow onClick={() => handlePageClick("-1")} />
               {currentPage}
