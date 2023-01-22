@@ -7,11 +7,18 @@ export const LoaderContainer = styled.div`
 `;
 
 export const TableContainer = styled.div`
-  background-color: ${(props) => props.theme.insideColor};
-  border-radius: 10px;
-  margin: auto;
-  width: 80%;
+  position: relative;
+  margin: 0 58px;
   padding: 0px 20px;
+  background-color: ${(props) => props.theme.insideColor};
+  border-radius: 20px;
+  font-size: 11px;
+  @media (max-width: 1100px) {
+    margin: 0 25px;
+  }
+  @media (max-width: 600px) {
+    margin: 0 15px;
+  }
 `;
 
 export const TableHeaderText = styled.h1`
