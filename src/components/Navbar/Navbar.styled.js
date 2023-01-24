@@ -37,22 +37,20 @@ export const NavLeftSide = styled.div`
   display: flex;
 `;
 
-export const NavLink = styled(Link)` 
-    color:${(props) => props.theme.textColor};
-    text-decoration: none;
-    margin: 0px 10px;
-    padding: 10px 0;
-    width: 120px;
-    display: flex;
-    justify-content: center;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    
-    
-    &.active {
-      background-color: ${(props) => props.theme.navInside};
-    }
+export const NavLink = styled(Link)`
+  color: ${(props) => props.theme.textColor};
+  text-decoration: none;
+  margin: 0px 10px;
+  padding: 10px 0;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &.active {
+    background-color: ${(props) => props.theme.navInside};
   }
 `;
 

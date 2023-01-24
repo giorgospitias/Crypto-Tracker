@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ChartsContainer = styled.div`
   margin: 30px 58px;
+
   @media (max-width: 1100px) {
     margin: 25px 25px;
   }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ChartContainer = styled.div`
   background: ${(props) => props.theme.insideColor};
-  border-radius: 5%;
+  border-radius: 20px;
   padding: 20px;
   width: 48%;
   @media (max-width: 900px) {

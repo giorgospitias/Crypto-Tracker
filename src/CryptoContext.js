@@ -7,6 +7,7 @@ const CryptoContext = ({ children }) => {
   const [symbol, setSymbol] = useState("€");
   const [loading, setLoading] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [days, setDays] = useState(30);
 
   useEffect(() => {
     if (currency === "gbp") setSymbol("£");
@@ -26,6 +27,8 @@ const CryptoContext = ({ children }) => {
         setLoading,
         itemsPerPage,
         setItemsPerPage,
+        days,
+        setDays,
       }}
     >
       {children}

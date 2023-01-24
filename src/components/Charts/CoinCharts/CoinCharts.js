@@ -8,12 +8,13 @@ import {
 } from "./CoinCharts.styled";
 import LineChart from "../ChartDiagrams/LineChart";
 import BarChart from "../ChartDiagrams/BarChart";
+import ChartDaysSelector from "../ChartDaysSelector/ChartDaysSelector";
 import { CryptoState } from "../../../CryptoContext";
 
 function CoinCharts() {
   const [data, setData] = useState([]);
-  const { currency, symbol } = CryptoState();
-  const [days, setDays] = useState(30);
+  const { currency, days } = CryptoState();
+
   const fetchChartData = async () => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currency}&days=${days}&interval=daily`
@@ -24,16 +25,17 @@ function CoinCharts() {
 
   useEffect(() => {
     fetchChartData();
-  }, [currency]);
+  }, [currency, days]);
 
   return (
     <>
       <ChartsContainer>
         <ChartHeader>Overview</ChartHeader>
         <ChartsWrapper>
-          <LineChart />
-          <BarChart />
+          <LineChart data={data} />
+          <BarChart data={data} />
         </ChartsWrapper>
+        <ChartDaysSelector />
       </ChartsContainer>
     </>
   );
