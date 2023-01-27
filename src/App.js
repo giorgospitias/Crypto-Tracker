@@ -22,7 +22,7 @@ function App() {
         <Navbar toggleTheme={themeToggler} />
         <Routes>
           <Route path="/" exact element={<HomePage />} />
-          <Route path="/Coins" element={<CoinPage />} />
+          <Route path="/Coins/:id" element={<CoinPage />} />
           <Route path="/Portfolio" element={<Portfolio />} />
         </Routes>
       </ThemeProvider>
