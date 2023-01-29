@@ -7,6 +7,11 @@ export const SummaryWrapper = styled.div`
   gap: 15px;
   flex-wrap: wrap;
 `;
+export const SummuryHeader = styled.div`
+  margin: 10px 270px;
+  font-size: 24px;
+  color: ${(props) => props.theme.textColor};
+`;
 
 export const SummaryDataContainer = styled.div`
   background-color: ${(props) => props.theme.insideColor};
@@ -56,14 +61,21 @@ export const PriceContainer = styled.div`
   font-size: 12px;
 `;
 
+export const CurrentPrice = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
 export const GreenNumber = styled.span`
   color: #00fc2a;
   margin-left: 4px;
+  font-size: 16px;
 `;
 
 export const RedNumber = styled.span`
   color: #fe1040;
   margin-left: 4px;
+  font-size: 16px;
 `;
 
 export const LayerIconContainer = styled.div`
@@ -83,13 +95,13 @@ export const BottomContainer = styled.div`
 `;
 
 export const AllTimeHighContainer = styled.div`
-  margin-bottom: 22px;
+  margin-bottom: 21px;
   text-align: center;
 `;
 
 export const AllTimeLowContainer = styled.div`
   text-align: center;
-  margin-bottom: 23px;
+  margin-bottom: 20px;
 `;
 
 export const NumberListContainer = styled.div`
