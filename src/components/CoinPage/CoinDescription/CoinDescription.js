@@ -26,7 +26,7 @@ function CoinDescription({ data }) {
         </DescriptionWrapper>
         <LinksContainer>
           <LinkWrapper>
-            <Link href={data?.links?.blockchain_site[1]} target="_blank">
+            <Link href={data?.links?.blockchain_site[0]} target="_blank">
               <LinkIcon src={LinkImage} alt="link-icon" />
               <LinkText>{data?.links?.blockchain_site[0]}</LinkText>
             </Link>
@@ -34,13 +34,13 @@ function CoinDescription({ data }) {
           <LinkWrapper>
             <Link href={data?.links?.blockchain_site[1]} target="_blank">
               <LinkIcon src={LinkImage} alt="link-icon" />
-              <LinkText>{data?.links?.blockchain_site[0]}</LinkText>
+              <LinkText>{data?.links?.blockchain_site[1]}</LinkText>
             </Link>
           </LinkWrapper>
           <LinkWrapper>
-            <Link href={data?.links?.blockchain_site[1]} target="_blank">
+            <Link href={data?.links?.blockchain_site[2]} target="_blank">
               <LinkIcon src={LinkImage} alt="link-icon" />
-              <LinkText>{data?.links?.blockchain_site[0]}</LinkText>
+              <LinkText>{data?.links?.blockchain_site[2]}</LinkText>
             </Link>
           </LinkWrapper>
         </LinksContainer>

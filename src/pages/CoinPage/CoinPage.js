@@ -28,7 +28,7 @@ function CoinPage() {
     <CoinPageContainer>
       <CoinSummary data={data} />
       <CoinDescription data={data} />
-      <CurrencyConverter />
+      <CurrencyConverter data={data} />
       <CoinPageChart />
     </CoinPageContainer>
   );
