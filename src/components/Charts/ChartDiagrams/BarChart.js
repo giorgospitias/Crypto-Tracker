@@ -55,8 +55,8 @@ function BarChart(props) {
   const createCanvas = (canvas) => {
     const ctx = canvas.getContext("2d");
     const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "#000000");
-    gradient.addColorStop(1, "#e4c34f");
+    gradient.addColorStop(0, "rgba(33, 114, 229, 1)");
+    gradient.addColorStop(1, "rgba(0, 0, 0, 1)");
 
     return {
       labels: chartLabelDates,
@@ -65,7 +65,7 @@ function BarChart(props) {
           label: "Volume",
           data: chartMarketVolumes,
           backgroundColor: gradient,
-          hoverBackgroundColor: "#dbc473",
+          hoverBackgroundColor: "#6e8cfa",
           hoverBorderRadius: 10,
         },
       ],

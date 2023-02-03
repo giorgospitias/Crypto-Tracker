@@ -33,7 +33,7 @@ function LineChart(props) {
       line: {
         tension: 0.4,
         borderWidth: 3,
-        borderColor: "#dbc473",
+        borderColor: "rgba(0, 255, 95, 1)",
       },
       point: {
         radius: 0,
@@ -72,8 +72,8 @@ function LineChart(props) {
   const createCanvas = (canvas) => {
     const ctx = canvas.getContext("2d");
     const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "#000000");
-    gradient.addColorStop(1, "#888888");
+    gradient.addColorStop(0, "rgba(0, 255, 95, .5)");
+    gradient.addColorStop(1, "rgba(0, 0, 0, 0.0)");
 
     return {
       labels: chartLabel,
@@ -82,7 +82,7 @@ function LineChart(props) {
           label: "Price",
           data: chartMarket,
           backgroundColor: gradient,
-          pointBackgroundColor: "#dbc473",
+          pointBackgroundColor: "rgba(0, 255, 95, 1)",
           fill: true,
         },
       ],

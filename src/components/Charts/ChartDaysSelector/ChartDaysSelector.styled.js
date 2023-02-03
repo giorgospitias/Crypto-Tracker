@@ -25,8 +25,8 @@ export const ChartDayslist = styled.ul`
 `;
 export const ChartDaysButtons = styled.button`
   background: ${(props) =>
-    props.selected ? "#dbc473;" : props.theme.navInside};
-  color: ${(props) => (props.selected ? "#000" : props.theme.textColor)};
+    props.selected ? "#2751ea;" : props.theme.navInside};
+  color: ${(props) => props.theme.textColor};
   cursor: pointer;
   padding: 7px 15px;
   border-radius: 20px;

@@ -29,7 +29,7 @@ function CoinPage() {
       <CoinSummary data={data} />
       <CoinDescription data={data} />
       <CurrencyConverter data={data} />
-      <CoinPageChart />
+      <CoinPageChart id={params.id} />
     </CoinPageContainer>
   );
 }
