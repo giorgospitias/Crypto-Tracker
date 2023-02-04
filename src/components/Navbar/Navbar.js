@@ -6,16 +6,13 @@ import {
   NavbarContainer,
   NavLeftSide,
   NavRightSide,
-  SearchContainer,
   ThemeIconContainer,
-  SearchInput,
-  SearchForm,
   DropdownContainer,
   DropdownCurrency,
   NavBarContainer,
 } from "./Navbar.styled";
-import NavBarData from "../NavBarData/NavBarData";
-import SearchIcon from "../../assets/SearchIcon";
+import NavBarData from "./NavBarData/NavBarData";
+import SearchBar from "./SearchBar/SearchBar";
 import ThemeIcon from "../../assets/ThemeIcon";
 import { CryptoState } from "../../CryptoContext";
 
@@ -32,12 +29,7 @@ const Navbar = (props) => {
               <NavLink to="/Portfolio">Portfolio</NavLink>
             </NavLeftSide>
             <NavRightSide>
-              <SearchContainer>
-                <SearchForm>
-                  <SearchIcon />
-                  <SearchInput type="text" placeholder="Search..." />
-                </SearchForm>
-              </SearchContainer>
+              <SearchBar />
               <DropdownContainer>
                 <span>
                   <p>{symbol}</p>

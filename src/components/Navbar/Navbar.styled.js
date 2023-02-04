@@ -58,33 +58,6 @@ export const NavRightSide = styled.div`
   display: flex;
 `;
 
-export const SearchContainer = styled.div`
-  width: 200px;
-  padding: 10.13px 0px;
-  display: flex;
-  justify-content: center;
-  border-radius: 8px;
-  background-color: ${(props) => props.theme.navInside};
-`;
-
-export const SearchForm = styled.form`
-  display: flex;
-  alighn-items: center;
-  margin-left: 5px;
-`;
-
-export const SearchInput = styled.input`
-padding: 0px 10px;
-font-size: 14px;
-color: ${(props) => props.theme.textColor};
-background-color: transparent;
-outline: none;
-border: none;
-width: 100%;
-height: 100%;
-}
-`;
-
 export const DropdownContainer = styled.div`
   width: 80px;
   display: flex;

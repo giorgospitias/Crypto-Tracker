@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import btcLogo from "../../assets/bitcoin-logo.png";
-import ethLogo from "../../assets/ethereum-logo.png";
-import { largeNumberFormat } from "../../utils/numberFormat";
-import { Dot } from "../../utils/arrows";
+import btcLogo from "../../../assets/bitcoin-logo.png";
+import ethLogo from "../../../assets/ethereum-logo.png";
+import { largeNumberFormat } from "../../../utils/numberFormat";
+import { Dot } from "../../../utils/arrows";
 import {
   NavbarDataContainer,
   InnerContainer,
@@ -12,7 +12,7 @@ import {
   SliderBar,
   LogoIcon,
 } from "./NavBarData.styled";
-import { CryptoState } from "../../CryptoContext";
+import { CryptoState } from "../../../CryptoContext";
 
 const NavBarData = () => {
   const [data, setData] = useState([]);
