@@ -1,55 +1,49 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CryptoState } from "../../CryptoContext";
+import Modal from "../../components/Portfolio/Modal/Modal";
+import AssetsList from "../../components/Portfolio/AssetsList/AssetsList";
+import {
+  Container,
+  Subtitle,
+  Button,
+  PageHead,
+  AssetsListContainer,
+} from "./Portfolio.styled";
 
-const SearchInput = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedOptionImage, setSelectedOptionImage] = useState(null);
+function Portfolio() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [data, setData] = useState([]);
+
+  const { currency } = CryptoState();
+
+  const toggleModal = () => setIsModalOpen(true);
+
+  const fetchCoins = async () => {
+    const { data } = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`
+    );
+    console.log(data);
+    setData(data);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/list"
-      );
-      console.log(result.data);
-      setFilteredOptions(result.data);
-    };
-    fetchData();
-  }, []);
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    setFilteredOptions(
-      filteredOptions.filter((option) =>
-        option.name.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    );
-  };
-
-  const handleOptionClick = (option) => {
-    setInputValue(option.name);
-    setSelectedOption(option);
-    setSelectedOptionImage(option.image);
-    setFilteredOptions([]);
-  };
-
+    fetchCoins();
+  }, [currency]);
   return (
-    <div>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
-      {filteredOptions.length > 0 && (
-        <ul>
-          {filteredOptions.map((option) => (
-            <li key={option.id} onClick={() => handleOptionClick(option)}>
-              {option.name}
-            </li>
-          ))}
-        </ul>
-      )}
-      <button onClick={() => console.log(selectedOption)}>Search</button>
-      {selectedOptionImage && <img src={selectedOptionImage} />}
-    </div>
+    <Container>
+      <PageHead>
+        <Button onClick={toggleModal}>Add Asset</Button>
+        {isModalOpen && <Modal setIsOpen={setIsModalOpen} />}
+      </PageHead>
+      <Subtitle>Your statistics</Subtitle>
+      <AssetsListContainer>
+        {data.map((asset) => {
+          return <AssetsList key={asset.uniqueId} asset={asset} />;
+        })}
+      </AssetsListContainer>
+    </Container>
   );
-};
+}
 
-export default SearchInput;
+export default Portfolio;

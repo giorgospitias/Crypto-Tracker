@@ -16,8 +16,8 @@ export const DropDownHeader = styled("div")`
 
 export const DropDownListContainer = styled("div")`
   position: absolute;
-  top: 25%;
-  right: 16%;
+  top: 50px;
+  right: 120px;
   background-color: ${(props) => props.theme.insideColor};
   border-radius: 10px;
   border: solid 1px ${(props) => props.theme.textColor};
@@ -46,12 +46,10 @@ export const ListItem = styled("li")`
 `;
 
 export const ArrowDown = styled.div`
-  width: 0;
-  height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid ${(props) => props.theme.textColor};
-  margin-top: 10px;
+  margin-top: 6.5px;
   margin-left: 5px;
   cursor: pointer;
 `;

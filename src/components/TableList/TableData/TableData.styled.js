@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 
 export const TableDataRow = styled.tr`
   align-items: center;
+  &:hover {
+    background-color: ${(props) => props.theme.navInside};
+  }
 `;
 
 export const TableDataElement = styled.td`
   height: 93px;
-  padding: 16px 16px 16px 0px;
+  padding: 16px 12px 16px 5px;
   border-bottom: solid 1px grey;
 `;
 export const TableDataInenerContainer = styled.div`

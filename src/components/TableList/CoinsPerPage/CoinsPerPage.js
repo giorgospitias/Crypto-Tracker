@@ -26,9 +26,9 @@ export default function CoinsPerPage() {
 
   return (
     <Main>
-      <DropDownHeader onClick={toggling}>
+      <DropDownHeader>
         {selectedOption || "10"}
-        <ArrowDown />
+        <ArrowDown onClick={toggling} />
       </DropDownHeader>
 
       {isOpen && (
