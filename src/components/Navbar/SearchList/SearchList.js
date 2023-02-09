@@ -1,7 +1,7 @@
 import React from "react";
 import { CoinWrapper, ElementsWrapper } from "./SearchList.styled";
 
-function SearchList({ coin, logo, name, rank, symbol, clearInput }) {
+function SearchList({ coin, logo, name, clearInput }) {
   return (
     <CoinWrapper to={`/coins/${coin}`} onClick={() => clearInput()}>
       <ElementsWrapper>

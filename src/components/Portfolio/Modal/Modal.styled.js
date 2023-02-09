@@ -21,10 +21,11 @@ export const ModalOverlay = styled.div`
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 50%;
   overflow: auto;
   background: ${(props) => props.theme.navInside};
   border-radius: 12px;
-  padding: 1em 0;
+  padding-bottom: 1em;
   @media (min-width: 500px) {
     margin-top: 5em;
   }
@@ -65,12 +66,12 @@ export const CloseButton = styled.div`
   z-index: 999;
   color: #06d554;
   font-size: 3em;
-  margin-top: 0;
+  margin-top: 0px;
   font-weight: bold;
   height: 0;
   display: flex;
   justify-content: end;
-  padding-right: 0.5em;
+  padding-right: 0.3em;
   &:hover,
   &:focus {
     color: #ffffff;

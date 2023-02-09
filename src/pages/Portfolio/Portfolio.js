@@ -13,23 +13,12 @@ import {
 
 function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [data, setData] = useState([]);
+  const [selectedCoinData, setSelectedCoinData] = useState([]);
 
   const { currency } = CryptoState();
 
   const toggleModal = () => setIsModalOpen(true);
 
-  const fetchCoins = async () => {
-    const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`
-    );
-    console.log(data);
-    setData(data);
-  };
-
-  useEffect(() => {
-    fetchCoins();
-  }, [currency]);
   return (
     <Container>
       <PageHead>
@@ -38,8 +27,8 @@ function Portfolio() {
       </PageHead>
       <Subtitle>Your statistics</Subtitle>
       <AssetsListContainer>
-        {data.map((asset) => {
-          return <AssetsList key={asset.uniqueId} asset={asset} />;
+        {selectedCoinData.map((item, index) => {
+          return <AssetsList key={index} asset={item} />;
         })}
       </AssetsListContainer>
     </Container>

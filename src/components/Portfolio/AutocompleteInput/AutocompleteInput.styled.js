@@ -44,7 +44,6 @@ export const Input = styled.input`
 `;
 
 export const ArrowIcon = styled(ArrowUp)`
-  width: 12px;
   #arrow {
     fill: #06d554;
   }

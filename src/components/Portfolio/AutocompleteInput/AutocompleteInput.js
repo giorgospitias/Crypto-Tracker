@@ -16,21 +16,20 @@ import {
 function AutocompleteInput({ handleItemSelected }) {
   const [isVisible, setIsVisible] = useState(false);
   const [text, setText] = useState("");
-
   const [searchData, setSearchData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [showResult, setShowResult] = useState(false);
+
   const fetchSearchData = async () => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/search?query=${searchTerm}`
     );
     console.log(data.coins);
-    setSearchData(data?.coins);
+    setSearchData(data?.coins.slice(0, 25));
   };
 
   useEffect(() => {
     fetchSearchData();
-  }, []);
+  }, [searchTerm]);
 
   const results = searchData.filter((item) => {
     return searchTerm.toLowerCase() === ""
@@ -38,15 +37,14 @@ function AutocompleteInput({ handleItemSelected }) {
       : item.id.toLowerCase().includes(searchTerm);
   });
 
-  console.log(results);
   const handleChange = (e) => {
     const searchTerm = e.target.value;
-    setSearchTerm(searchTerm);
+    setSearchTerm(e.target.value);
+    setText(searchTerm);
     if (searchTerm) {
       setIsVisible(true);
-      setText(searchTerm);
     } else {
-      setIsVisible(!isVisible);
+      setIsVisible(false);
     }
   };
 
@@ -60,8 +58,7 @@ function AutocompleteInput({ handleItemSelected }) {
     setText(item.name);
     handleItemSelected(item);
   };
-
-  const toggle = () => setIsVisible(!isVisible);
+  console.log(results);
 
   return (
     <Root>
@@ -69,8 +66,8 @@ function AutocompleteInput({ handleItemSelected }) {
         <Input
           autoComplete="off"
           name="coinName"
-          onChange={handleChange}
           value={text}
+          onChange={handleChange}
           type="text"
           placeholder="Select Coin"
         />
