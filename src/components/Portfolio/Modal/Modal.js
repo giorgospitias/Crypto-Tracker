@@ -37,8 +37,43 @@ const initialSelectionState = {
 function Modal({ setIsOpen }) {
   const [asset, setAsset] = useState(initialAssetState);
   const [selection, setSelection] = useState(initialSelectionState);
-  const { currency, symbol } = CryptoState();
   const [selected, setSelected] = useState([]);
+  const { currency, symbol, selectedCoinData, setSelectedCoinData } =
+    CryptoState();
+
+  const fetchHistoryData = async (asset) => {
+    const { coinId, purchasedAmount, date } = asset;
+
+    const purchasedDate = date.split("-").reverse().join("-");
+
+    const response = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${coinId}/history?date=${purchasedDate}`
+    );
+    const data = await response.json();
+
+    const uniqueId = uuid().slice(0, 8);
+    const historicPriceData = data?.market_data?.current_price?.usd;
+    const { image, name, symbol, id } = data;
+    const assetData = [
+      ...selectedCoinData,
+      {
+        image: image?.small,
+        name,
+        symbol,
+        id,
+        uniqueId,
+        purchasedDate,
+        purchasedAmount,
+        historicPriceData,
+      },
+    ];
+
+    return assetData;
+  };
+
+  useEffect(() => {
+    fetchHistoryData(asset.id);
+  }, [asset.id, currency]);
 
   const clearState = () => {
     setAsset(initialAssetState);
@@ -54,7 +89,7 @@ function Modal({ setIsOpen }) {
       image: minimizedImage,
     });
   };
-  console.log(asset);
+
   const handleAmountChange = ({ value }) => {
     const newAmount = Number(value);
     setAsset({ ...asset, purchasedAmount: newAmount });
@@ -63,45 +98,17 @@ function Modal({ setIsOpen }) {
   const handleDateChange = ({ target }) =>
     setAsset({ ...asset, date: target.value });
 
-  const fetchHistoryData = async (asset) => {
-    const { coinId, purchasedAmount, date } = asset;
-
-    const purchasedDate = date.split("-").reverse().join("-");
-
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/history?date=${purchasedDate}`
-    );
-    const data = await response.json();
-    const uniqueId = uuid().slice(0, 8);
-    const historicPriceData = data?.market_data.current_price.usd;
-    const { image, name, symbol, id } = data;
-    const assetData = {
-      image: image.small,
-      name,
-      symbol,
-      id,
-      uniqueId,
-      purchasedDate,
-      purchasedAmount,
-      historicPriceData,
-    };
-    setSelected(...selected, assetData);
-    return assetData;
-  };
-
-  useEffect(() => {
-    fetchHistoryData(asset);
-  }, []);
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (asset) {
-      fetchHistoryData(asset);
+      const assetDat = await fetchHistoryData(asset);
+      setSelectedCoinData(assetDat);
+      console.log(assetDat);
       setIsOpen(false);
       clearState();
     }
   };
-  console.log(selected);
+
   return (
     <ModalOverlay>
       <ModalContainer>

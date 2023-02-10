@@ -13,12 +13,11 @@ import {
 
 function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCoinData, setSelectedCoinData] = useState([]);
 
-  const { currency } = CryptoState();
+  const { currency, selectedCoinData, setSelectedCoinData } = CryptoState();
 
   const toggleModal = () => setIsModalOpen(true);
-
+  console.log(selectedCoinData);
   return (
     <Container>
       <PageHead>

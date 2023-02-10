@@ -25,7 +25,8 @@ import { priceFormat, percentageFormat } from "../../../utils/numberFormat";
 
 function AssetsList({ asset }) {
   const [marketdata, setData] = useState([]);
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, setSelectedCoinData, selectedCoinData } =
+    CryptoState();
 
   const fetchCoins = async (id) => {
     const { data } = await axios.get(
@@ -38,6 +39,12 @@ function AssetsList({ asset }) {
   useEffect(() => {
     fetchCoins(asset.id);
   }, [asset.id]);
+
+  const handleDelete = (index) => {
+    const updatedSelectedCoinData = [...selectedCoinData];
+    updatedSelectedCoinData.splice(index, 1);
+    setSelectedCoinData(updatedSelectedCoinData);
+  };
   return (
     <ListWrapper>
       <ListHead>
@@ -48,7 +55,7 @@ function AssetsList({ asset }) {
           {asset.name}
           <CoinSymbol>({asset.symbol})</CoinSymbol>
         </CoinName>
-        <DeleteButton>&times;</DeleteButton>
+        <DeleteButton onClick={handleDelete}>&times;</DeleteButton>
       </ListHead>
       <ListBody>
         <MarketPrice>
