@@ -11,7 +11,6 @@ import SearchList from "../SearchList/SearchList";
 
 function SearchBar() {
   const [searchData, setSearchData] = useState([]);
-  const [filteredCoins, setFilteredCoins] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showResult, setShowResult] = useState(false);
   const showResultRef = useRef(null);

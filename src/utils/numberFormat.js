@@ -13,3 +13,10 @@ export function percentageFormat(n) {
     return <div style={{ color: "rgb(254, 16, 64)" }}>{Math.abs(num)}%</div>;
   }
 }
+
+export const calculatePercentage = (a, b) => {
+  const sum = a + b;
+  const percentageA = ((a / sum) * 100).toFixed(0);
+  const percentageB = ((b / sum) * 100).toFixed(0);
+  return { percentageA: percentageA, percentageB: percentageB };
+};

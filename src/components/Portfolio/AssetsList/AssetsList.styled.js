@@ -22,14 +22,14 @@ export const ListHead = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #2c2d33;
+  background: ${(props) => props.theme.insideColor};
   border-radius: 6px;
   padding: 0.7em 1em;
   margin-bottom: 1em;
   margin-top: 2em;
   @media (min-width: 430px) {
     margin: 0 auto;
-    background: ${(props) => props.theme.main};
+    background: ${(props) => props.theme.insideColor};
   }
   @media (min-width: 1024px) {
     width: 15%;
@@ -96,12 +96,12 @@ export const InfoContainer = styled.section`
   p {
     font-size: 0.7rem;
     padding: 1.5em 1em;
-    background: #2c2d33;
+    background: ${(props) => props.theme.insideColor};
     margin-bottom: 0.8em;
     border-radius: 8px;
   }
   @media (min-width: 430px) {
-    background: ${(props) => props.theme.main};
+    background: ${(props) => props.theme.insideColor};
     padding: 0.35em 0.1em;
     display: flex;
     border-radius: 8px;
@@ -147,22 +147,49 @@ export const Subtitle = styled.p`
 
 export const GreenText = styled.span`
   color: #00fc2a;
-
+  color: ${(props) =>
+    props.price && (props.price <= 0 ? "#FE1040" : "#00fc2a")};
   margin-left: 1em;
   display: flex;
   align-items: center;
 `;
 
+export const PriceChangeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 1em;
+`;
+
+export const ParaGreen = styled.div`
+  color: rgb(0, 252, 42);
+  padding: 2px 4px;
+`;
+
+export const ParaRed = styled.div`
+  color: #fe1040;
+  padding: 2px 4px;
+`;
 export const Text = styled.div`
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.textColor};
 `;
 
+export const PriceUp = styled.div`
+  color: rgb(0, 252, 42);
+  padding: 2px 4px;
+  border-radius: 10px;
+`;
+
+export const PriceDown = styled.div`
+  color: rgb(254, 16, 64);
+  padding: 2px 4px;
+  border-radius: 10px;
+`;
 export const PercentageBar = styled.div`
   width: 45px;
   background: ${(props) => props.theme.textColor};
-
   height: 9px;
   border-radius: 12px;
   margin: 0 0.5em;
@@ -172,6 +199,7 @@ export const FillPercentage = styled.div`
   background: #00fc2a;
   border-radius: 12px;
   height: 100%;
+  width: ${(props) => `${props.percentage}%`};
 `;
 
 export const DeleteButton = styled.span`
