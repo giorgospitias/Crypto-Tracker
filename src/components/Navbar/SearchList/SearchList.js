@@ -3,7 +3,7 @@ import { CoinWrapper, ElementsWrapper } from "./SearchList.styled";
 
 function SearchList({ coin, logo, name, clearInput }) {
   return (
-    <CoinWrapper to={`/coins/${coin}`} onClick={() => clearInput()}>
+    <CoinWrapper to={`/coins/${coin}`} onClick={clearInput}>
       <ElementsWrapper>
         <img src={logo} alt="coin" />
         <p>{name}</p>

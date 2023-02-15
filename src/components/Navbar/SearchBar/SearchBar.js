@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import useOnClickOutside from "use-onclickoutside";
 import axios from "axios";
 import SearchIcon from "../../../assets/SearchIcon";
 import {
@@ -13,7 +14,12 @@ function SearchBar() {
   const [searchData, setSearchData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showResult, setShowResult] = useState(false);
-  const showResultRef = useRef(null);
+
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => {
+    setShowResult(false);
+  });
 
   const fetchSearchData = async () => {
     const { data } = await axios.get(
@@ -43,10 +49,10 @@ function SearchBar() {
       setShowResult(!showResult);
     }
   };
-
+  const handleClick = () => setShowResult(!showResult);
   const clearInput = () => {
     setSearchTerm("");
-    setShowResult(!showResult);
+    setShowResult(false);
   };
 
   return (
@@ -58,11 +64,13 @@ function SearchBar() {
             type="text"
             placeholder="Search..."
             onChange={handleChange}
+            onClick={handleClick}
+            value={searchTerm}
           />
         </SearchForm>
       </SearchContainer>
       {showResult && (
-        <CoinResultWrapper ref={showResultRef}>
+        <CoinResultWrapper ref={ref}>
           {results.slice(0, 25).map((coin) => (
             <SearchList
               key={coin?.id}

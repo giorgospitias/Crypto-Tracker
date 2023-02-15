@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CryptoState } from "../../../CryptoContext";
+import useOnClickOutside from "use-onclickoutside";
 import {
   Main,
   DropDownHeader,
@@ -15,6 +16,12 @@ export default function CoinsPerPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const { setItemsPerPage } = CryptoState();
+
+  const ref = React.useRef(null);
+
+  useOnClickOutside(ref, () => {
+    setIsOpen(false);
+  });
 
   const toggling = () => setIsOpen(!isOpen);
 
@@ -32,7 +39,7 @@ export default function CoinsPerPage() {
       </DropDownHeader>
 
       {isOpen && (
-        <DropDownListContainer>
+        <DropDownListContainer ref={ref}>
           <DropDownList>
             {options.map((option) => (
               <ListItem onClick={onOptionClicked(option)}>{option}</ListItem>

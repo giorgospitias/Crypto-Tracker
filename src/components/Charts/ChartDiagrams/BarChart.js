@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { ChartContainer, ChartWrapper } from "./ChartDiagrams.styled";
 import BarChartDetails from "./BarChartDetails";
 import CoinCharts from "../CoinCharts/CoinCharts";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import { Oval } from "react-loader-spinner";
+import { LoaderContainer } from "./ChartDiagrams.styled";
 
-function BarChart(props) {
-  const chartMarketVolumes = props?.data?.total_volumes?.map((el) => el[1]);
-  const chartLabelDates = props?.data?.total_volumes?.map((el) =>
+function BarChart({ data, loading }) {
+  const chartMarketVolumes = data?.total_volumes?.map((el) => el[1]);
+  const chartLabelDates = data?.total_volumes?.map((el) =>
     new Date(el[0]).getDate()
   );
   const options = {
@@ -77,10 +79,26 @@ function BarChart(props) {
   const coinData = createCanvas(canvas);
   return (
     <ChartContainer>
-      <BarChartDetails />
-      <ChartWrapper>
-        <Bar data={coinData} options={options} />
-      </ChartWrapper>
+      {loading ? (
+        <LoaderContainer>
+          <div>
+            <Oval
+              height="70"
+              width="70"
+              color="rgb(0, 252, 42)"
+              ariaLabel="bars-loading"
+              visible={true}
+            />
+          </div>
+        </LoaderContainer>
+      ) : (
+        <div>
+          <BarChartDetails />
+          <ChartWrapper>
+            <Bar data={coinData} options={options} />
+          </ChartWrapper>
+        </div>
+      )}
     </ChartContainer>
   );
 }

@@ -12,9 +12,9 @@ import {
   Filler,
 } from "chart.js";
 
-function LineChart(props) {
-  const chartMarket = props?.data?.prices?.map((el) => el[1]);
-  const chartLabel = props?.data?.total_volumes?.map((el) =>
+function LineChart({ data, loading }) {
+  const chartMarket = data?.prices?.map((el) => el[1]);
+  const chartLabel = data?.total_volumes?.map((el) =>
     new Date(el[0]).getDate()
   );
   const options = {

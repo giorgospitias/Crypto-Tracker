@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
+import useOnClickOutside from "use-onclickoutside";
 import {
   Root,
   InputContainer,
@@ -18,6 +19,12 @@ function AutocompleteInput({ handleItemSelected }) {
   const [text, setText] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => {
+    setIsVisible(false);
+  });
 
   const fetchSearchData = async () => {
     const { data } = await axios.get(
@@ -76,7 +83,7 @@ function AutocompleteInput({ handleItemSelected }) {
         </AutoCompleteIcon>
       </InputContainer>
       {isVisible && (
-        <AutoCompleteContainer>
+        <AutoCompleteContainer ref={ref}>
           {results.slice(0, 25)?.map((item) => (
             <AutoCompleteItem key={uuid()}>
               <AutoCompleteItemButton onClick={() => suggestionSelected(item)}>
