@@ -17,7 +17,7 @@ import {
   TableHeaderText,
   TableHeaderTextSmall,
 } from "./CoinsTable.styled";
-import { Bars } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 import TableData from "../TableData/TableData";
 import { CryptoState } from "../../../CryptoContext";
 import CoinsPerPage from "../CoinsPerPage/CoinsPerPage";
@@ -73,7 +73,7 @@ function CoinsTable() {
         </TableNavContainer>
         {loading ? (
           <LoaderContainer>
-            <Bars
+            <Oval
               height="70"
               width="70"
               color="rgb(0, 252, 42)"

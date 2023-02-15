@@ -11,6 +11,8 @@ import {
   Tooltip,
   Filler,
 } from "chart.js";
+import { Oval } from "react-loader-spinner";
+import { LoaderContainer } from "../../TableList/CoinsTable/CoinsTable.styled";
 
 function LineChart({ data, loading }) {
   const chartMarket = data?.prices?.map((el) => el[1]);
@@ -94,10 +96,26 @@ function LineChart({ data, loading }) {
 
   return (
     <ChartContainer>
-      <LineChartDetails />
-      <ChartWrapper>
-        <Line data={coinData} options={options} />
-      </ChartWrapper>
+      {loading ? (
+        <LoaderContainer>
+          <div>
+            <Oval
+              height="70"
+              width="70"
+              color="rgb(0, 252, 42)"
+              ariaLabel="bars-loading"
+              visible={true}
+            />
+          </div>
+        </LoaderContainer>
+      ) : (
+        <div>
+          <LineChartDetails />
+          <ChartWrapper>
+            <Line data={coinData} options={options} />
+          </ChartWrapper>
+        </div>
+      )}
     </ChartContainer>
   );
 }

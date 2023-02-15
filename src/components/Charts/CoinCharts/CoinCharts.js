@@ -13,8 +13,8 @@ import { CryptoState } from "../../../CryptoContext";
 
 function CoinCharts() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { currency, days } = CryptoState();
+  const [loading, setLoading] = useState(false);
 
   const fetchChartData = async () => {
     setLoading(true);
@@ -22,8 +22,8 @@ function CoinCharts() {
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currency}&days=${days}&interval=daily`
     );
     console.log(data);
+    setLoading(false);
     setData(data);
-    setLoading(true);
   };
 
   useEffect(() => {

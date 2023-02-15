@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChartContainer, ChartWrapper } from "./ChartDiagrams.styled";
 import BarChartDetails from "./BarChartDetails";
 import CoinCharts from "../CoinCharts/CoinCharts";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Oval } from "react-loader-spinner";
-import { LoaderContainer } from "./ChartDiagrams.styled";
+import { LoaderContainer } from "../../TableList/CoinsTable/CoinsTable.styled";
 
 function BarChart({ data, loading }) {
   const chartMarketVolumes = data?.total_volumes?.map((el) => el[1]);
