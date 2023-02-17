@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const TableDataRow = styled.tr`
   align-items: center;
   &:hover {
-    background-color: ${(props) => props.theme.navInside};
+    background-color: #1f2128;
   }
 `;
 

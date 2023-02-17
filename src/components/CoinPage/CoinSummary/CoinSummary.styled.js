@@ -66,13 +66,13 @@ export const CurrentPrice = styled.div`
   font-weight: 600;
 `;
 
-export const GreenNumber = styled.span`
+export const GreenNumber = styled.div`
   color: #00fc2a;
   margin-left: 4px;
   font-size: 16px;
 `;
 
-export const RedNumber = styled.span`
+export const RedNumber = styled.div`
   color: #fe1040;
   margin-left: 4px;
   font-size: 16px;

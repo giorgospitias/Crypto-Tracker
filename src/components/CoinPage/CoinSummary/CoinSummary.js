@@ -36,6 +36,11 @@ import { ArrowUp, ArrowDown } from "../../../utils/arrows";
 
 function CoinSummary({ data }) {
   const { currency, symbol } = CryptoState();
+  console.log(
+    Math.abs(
+      data?.market_data?.price_change_percentage_24h_in_currency[currency]
+    )
+  );
 
   return (
     <>
@@ -65,10 +70,9 @@ function CoinSummary({ data }) {
             {priceFormat(data?.market_data?.current_price[currency])}
           </CurrentPrice>
           <PriceContainer>
-            {data?.market_data?.price_change_percentage_24h <= 0 ? (
+            {data?.market_data?.price_change_percentage_24h > 0 ? (
               <>
-                <ArrowUp style={{ marginTop: 0 }} />
-
+                <ArrowUp />
                 <GreenNumber>
                   {percentageFormat(
                     Math.abs(
@@ -80,7 +84,7 @@ function CoinSummary({ data }) {
               </>
             ) : (
               <>
-                <ArrowDown style={{ marginTop: 0 }} />
+                <ArrowDown />
                 <RedNumber>
                   {percentageFormat(
                     Math.abs(

@@ -1,5 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
+import { ArrowUp } from "../../utils/arrows";
 
 export const NavBarContainer = styled.div`
   display: flex;
@@ -66,49 +67,53 @@ export const DropdownContainer = styled.div`
   margin: 0 15px;
   padding-left: 3px;
   background: ${(props) => props.theme.navInside};
+`;
+export const SymbolWrapper = styled.div`
+  display: flex;
+`;
 
-  select {
-    font-size: 12px;
-    color: ${(props) => props.theme.textColor};
-    background-color: ${(props) => props.theme.navInside};
-    border: 1px solid;
-    border-color: ${(props) => props.theme.navInside};
-    cursor: pointer;
-    appearance: none;
+export const SymbolCyrcle = styled.span`
+  margin-left: 5px;
+  background: black;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 13px;
+  color: limegreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+`;
+export const CurrencyWrapper = styled.div`
+  margin-left: 6px;
+  font-size: 15px;
+`;
+export const DropdownCurrencyWrapper = styled.div`
+  position: absolute;
+  top: 60px;
+  right: 75px;
+`;
 
-    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100,0 50,50" style="fill:%2300fc2a;" /></svg>');
-    background-position: right 10px top 50%;
-    background-repeat: no-repeat;
-    background-size: 6px;
-    padding-right: 20px;
-    &:focus {
-      outline: none;
-    }
-  }
+export const DropdownCurrencyList = styled.ul`
+  background-color: ${(props) => props.theme.insideColor};
+`;
 
-  option {
-    font-size: 15px;
-  }
-
-  span {
-    margin-left: 5px;
-    background: black;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 13px;
-    color: limegreen;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
+export const ArrowIcon = styled(ArrowUp)`
+  #arrow {
+    fill: #06d554;
   }
 `;
 
-export const DropdownCurrency = styled.div`
+export const ArrowIconContainer = styled.span`
+  transform: ${(props) => (props.isOpen ? "rotateX(180deg)" : "none")};
+  transform-origin: center;
   display: flex;
-  width: 26px;
   margin-left: 6px;
+  cursor: pointer;
+  svg {
+    margin: auto;
+  }
 `;
 
 export const ThemeIconContainer = styled.div`

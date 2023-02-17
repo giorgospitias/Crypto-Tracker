@@ -24,7 +24,8 @@ export default function TableChart({ chartPrices }) {
             {
               data: chartPrices,
               borderColor: borderColor(chartPrices),
-              tension: 0.5,
+              borderWidth: 1.5,
+              tension: 0.1,
               fill: false,
             },
           ],
@@ -37,7 +38,7 @@ export default function TableChart({ chartPrices }) {
           },
           elements: {
             line: {
-              tension: 0.5,
+              tension: 0.1,
             },
             point: {
               radius: 0,
