@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const NavbarDataContainer = styled.div`
-  margin: auto;
+  margin: 0 auto 30px;
   width: 50%;
-  padding: 10px 20px;
+  padding: 15px 5px;
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -12,6 +12,20 @@ export const NavbarDataContainer = styled.div`
   background-color: ${(props) => props.theme.insideColor};
   color: ${(props) => props.theme.textColor};
   margin-bottom: 20px;
+
+  @media (max-width: 650px) {
+    width: 70%;
+  }
+  @media (max-width: 471px) {
+    width: 50%;
+    padding: 10px 5px;
+  }
+  @media (max-width: 400px) {
+    width: 60%;
+  }
+  @media (max-width: 350px) {
+    width: 70%;
+  }
 `;
 
 export const InnerContainer = styled.div`

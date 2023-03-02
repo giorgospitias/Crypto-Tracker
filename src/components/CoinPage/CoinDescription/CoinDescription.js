@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DescriptionContainer,
   DescriptionTitle,
@@ -9,10 +9,18 @@ import {
   Link,
   LinkIcon,
   LinkText,
+  ReadMore,
 } from "./CoinDescription.styled";
 import LinkImage from "../../../assets/Icon-link.png";
 
 function CoinDescription({ data }) {
+  const [showText, setShowText] = useState(true);
+
+  let text = `${data?.description?.en.slice(0, 251)}...`;
+  if (!showText) text = data?.description?.en;
+  const handleClick = () => {
+    setShowText(!showText);
+  };
   return (
     <>
       <DescriptionContainer>
@@ -20,9 +28,12 @@ function CoinDescription({ data }) {
         <DescriptionWrapper>
           <DescriptionParagraph
             dangerouslySetInnerHTML={{
-              __html: data?.description?.en,
+              __html: text,
             }}
           ></DescriptionParagraph>
+          <ReadMore onClick={handleClick}>
+            {showText ? "Read more" : "Read less"}
+          </ReadMore>
         </DescriptionWrapper>
         <LinksContainer>
           <LinkWrapper>

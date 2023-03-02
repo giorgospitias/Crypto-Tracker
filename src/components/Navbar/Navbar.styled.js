@@ -12,20 +12,15 @@ export const Nav = styled.nav`
   z-index: 1;
   display: flex;
   align-items: center;
-  
   height: 60px;
   padding: 10px 0px;
   width: 100%;
-  
-  
-}
 `;
 
 export const NavbarContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
     height: 60px;
     background-color: ${(props) => props.theme.insideColor};
     padding: 10px ;
@@ -60,6 +55,7 @@ export const NavRightSide = styled.div`
 `;
 
 export const DropdownContainer = styled.div`
+  position: relative;
   width: 80px;
   display: flex;
   align-items: center;
@@ -91,8 +87,7 @@ export const CurrencyWrapper = styled.div`
 `;
 export const DropdownCurrencyWrapper = styled.div`
   position: absolute;
-  top: 60px;
-  right: 75px;
+  top: 50px;
 `;
 
 export const DropdownCurrencyList = styled.ul`
@@ -125,4 +120,47 @@ export const ThemeIconContainer = styled.div`
   border-radius: 8px;
   cursor: pointer;
   background-color: ${(props) => props.theme.navInside};
+`;
+
+export const MobileMenu = styled.div`
+  position: absolute;
+  left: 90%;
+  top: 30%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    z-index: 1;
+    padding: 5px 0;
+    background: ${(props) => props.theme.insideColor};
+    text-decoration: none;
+
+    a,
+    li {
+      color: ${(props) => props.theme.textColor};
+      cursor: pointer;
+      text-decoration: none;
+      padding: 7px 15px;
+
+      &:hover {
+        background: ${(props) => props.theme.navInside};
+      }
+    }
+  }
+  .hamburger-icon {
+    font-size: 1.5rem;
+    transition: 0.3s color ease;
+
+    &:hover {
+      color: limegreen;
+    }
+
+    ul {
+      top: 150%;
+      left: -310%;
+    }
+  }
 `;

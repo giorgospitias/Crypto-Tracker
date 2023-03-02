@@ -19,14 +19,26 @@ export const TableContainer = styled.div`
   @media (max-width: 600px) {
     margin: 0 15px;
   }
+  @media (max-width: 355px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const TableHeaderText = styled.h1`
   font-size: 28px;
   font-weight: 700;
-  line-height: 10%;
+  line-height: 150%;
   @media (max-width: 900px) {
     font-size: 28px;
+  }
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+  }
+  @media (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 export const TableHeaderTextSmall = styled.span`
@@ -73,6 +85,10 @@ export const TableNavContainer = styled.div`
   gap: 12px;
   padding-bottom: 10px;
   padding-top: 10px;
+  @media (max-width: 355px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const PageSelectorWrapper = styled.div`

@@ -69,3 +69,8 @@ export const LinkText = styled.p`
   margin-left: 10px;
   height: 20px;
 `;
+
+export const ReadMore = styled.span`
+  color: #06d554;
+  cursor: pointer;
+`;

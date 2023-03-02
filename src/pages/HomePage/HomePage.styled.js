@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const HomePageContainer = styled.div`
    {
-    position: relative;
     width: 78%;
     margin: auto;
     padding-bottom: 30px;

@@ -21,12 +21,15 @@ import { Oval } from "react-loader-spinner";
 import TableData from "../TableData/TableData";
 import { CryptoState } from "../../../CryptoContext";
 import CoinsPerPage from "../CoinsPerPage/CoinsPerPage";
+import useWindowSize from "../../../utils/windowSize";
 
 function CoinsTable() {
   const [coins, setCoins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const { currency, setLoading, loading, itemsPerPage } = CryptoState();
+
+  const size = useWindowSize();
 
   const handlePageClick = (direction) =>
     direction === "+1"
@@ -58,7 +61,9 @@ function CoinsTable() {
         <TableNavContainer>
           <TableHeaderText>
             Top {itemsPerPage * currentPage}
-            <TableHeaderTextSmall>by Market Cap</TableHeaderTextSmall>
+            {size.width > 500 && (
+              <TableHeaderTextSmall>by Market Cap</TableHeaderTextSmall>
+            )}
           </TableHeaderText>
           <PageSelectorWrapper>
             <CoinTableRowText>SHOW:</CoinTableRowText>
@@ -90,12 +95,16 @@ function CoinsTable() {
                 <TableHeadData>#</TableHeadData>
                 <TableHeadData>Name</TableHeadData>
                 <TableHeadData>Price</TableHeadData>
-                <TableHeadData>1h%</TableHeadData>
-                <TableHeadData>24h%</TableHeadData>
-                <TableHeadData>7d%</TableHeadData>
-                <TableHeadData>24h Vol / Market Cap</TableHeadData>
-                <TableHeadData>Circulating / Total Sup</TableHeadData>
-                <TableHeadData>Last 7d</TableHeadData>
+                {size.width > 350 && <TableHeadData>1h%</TableHeadData>}
+                {size.width > 460 && <TableHeadData>24h%</TableHeadData>}
+                {size.width > 540 && <TableHeadData>7d%</TableHeadData>}
+                {size.width > 740 && (
+                  <TableHeadData>24h Vol / Market Cap</TableHeadData>
+                )}
+                {size.width > 900 && (
+                  <TableHeadData>Circulating / Total Sup</TableHeadData>
+                )}
+                {size.width > 1000 && <TableHeadData>Last 7d</TableHeadData>}
               </TableHeadRow>
             </TableHead>
             <TableBody>

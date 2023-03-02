@@ -68,20 +68,21 @@ function SearchBar() {
             value={searchTerm}
           />
         </SearchForm>
+
+        {showResult && (
+          <CoinResultWrapper ref={ref}>
+            {results.slice(0, 25).map((coin) => (
+              <SearchList
+                key={coin?.id}
+                coin={coin?.id}
+                name={coin?.name}
+                logo={coin?.thumb}
+                clearInput={clearInput}
+              />
+            ))}
+          </CoinResultWrapper>
+        )}
       </SearchContainer>
-      {showResult && (
-        <CoinResultWrapper ref={ref}>
-          {results.slice(0, 25).map((coin) => (
-            <SearchList
-              key={coin?.id}
-              coin={coin?.id}
-              name={coin?.name}
-              logo={coin?.thumb}
-              clearInput={clearInput}
-            />
-          ))}
-        </CoinResultWrapper>
-      )}
     </>
   );
 }

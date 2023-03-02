@@ -32,7 +32,6 @@ import {
   percentageFormat,
   largeNumberFormat,
 } from "../../../utils/numberFormat";
-import { ArrowUp, ArrowDown } from "../../../utils/arrows";
 
 function CoinSummary({ data }) {
   const { currency, symbol } = CryptoState();
@@ -72,7 +71,6 @@ function CoinSummary({ data }) {
           <PriceContainer>
             {data?.market_data?.price_change_percentage_24h > 0 ? (
               <>
-                <ArrowUp />
                 <GreenNumber>
                   {percentageFormat(
                     Math.abs(
@@ -84,7 +82,6 @@ function CoinSummary({ data }) {
               </>
             ) : (
               <>
-                <ArrowDown />
                 <RedNumber>
                   {percentageFormat(
                     Math.abs(

@@ -5,12 +5,12 @@ import { HomePageContainer } from "./HomePage.styled";
 
 function HomePage() {
   return (
-    <div>
+    <>
       <HomePageContainer>
         <CoinCharts />
         <CoinsTable />
       </HomePageContainer>
-    </div>
+    </>
   );
 }
 

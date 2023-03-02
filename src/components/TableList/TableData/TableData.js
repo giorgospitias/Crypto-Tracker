@@ -19,10 +19,13 @@ import {
 import { CryptoState } from "../../../CryptoContext";
 import TableChart from "../TableChart/TableChart";
 import { progressBarColors } from "../../../styles/progressBarColors";
+import useWindowSize from "../../../utils/windowSize";
 
 function TableData(props) {
   const { symbol } = CryptoState();
   const id = props.coins.market_cap_rank;
+
+  const size = useWindowSize();
 
   const generateColors = (id) => {
     return Object.values(progressBarColors)[
@@ -41,105 +44,119 @@ function TableData(props) {
             </p>
           </CoinLink>
         </TableDataElement>
+
         <TableDataElement>
           {symbol}
           {priceFormat(props.coins.current_price)}
         </TableDataElement>
-        <TableDataElement>
-          <TableDataInenerContainer>
-            <ArrowsContainer>
-              {props.coins.price_change_percentage_1h_in_currency <= 0.001 ? (
-                <ArrowDown />
-              ) : (
-                <ArrowUp />
-              )}
-            </ArrowsContainer>
-            <p>
-              {percentageFormat(
-                props.coins.price_change_percentage_1h_in_currency
-              )}
-            </p>
-          </TableDataInenerContainer>
-        </TableDataElement>
-        <TableDataElement>
-          <TableDataInenerContainer>
-            <ArrowsContainer>
-              {props.coins.price_change_percentage_24h_in_currency <= 0 ? (
-                <ArrowDown />
-              ) : (
-                <ArrowUp />
-              )}
-            </ArrowsContainer>
-            <p>
-              {percentageFormat(
-                props.coins.price_change_percentage_24h_in_currency
-              )}
-            </p>
-          </TableDataInenerContainer>
-        </TableDataElement>
-        <TableDataElement>
-          <TableDataInenerContainer>
-            <ArrowsContainer>
-              {props.coins.price_change_percentage_7d_in_currency <= 0 ? (
-                <ArrowDown />
-              ) : (
-                <ArrowUp />
-              )}
-            </ArrowsContainer>
-            <p>
-              {percentageFormat(
-                props.coins.price_change_percentage_7d_in_currency
-              )}
-            </p>
-          </TableDataInenerContainer>
-        </TableDataElement>
-        <TableDataElement>
-          <DataTotalCoinWrapper>
-            <LargeNumberContainer>
-              <p style={{ color: `${generateColors(id).color2}` }}>
-                {largeNumberFormat(props.coins.total_volume).toUpperCase()}
+        {size.width > 350 && (
+          <TableDataElement>
+            <TableDataInenerContainer>
+              <ArrowsContainer>
+                {props.coins.price_change_percentage_1h_in_currency <= 0.001 ? (
+                  <ArrowDown />
+                ) : (
+                  <ArrowUp />
+                )}
+              </ArrowsContainer>
+              <p>
+                {percentageFormat(
+                  props.coins.price_change_percentage_1h_in_currency
+                )}
               </p>
-              <p style={{ color: `${generateColors(id).color1}` }}>
-                {largeNumberFormat(props.coins.market_cap).toUpperCase()}
+            </TableDataInenerContainer>
+          </TableDataElement>
+        )}
+        {size.width > 460 && (
+          <TableDataElement>
+            <TableDataInenerContainer>
+              <ArrowsContainer>
+                {props.coins.price_change_percentage_24h_in_currency <= 0 ? (
+                  <ArrowDown />
+                ) : (
+                  <ArrowUp />
+                )}
+              </ArrowsContainer>
+              <p>
+                {percentageFormat(
+                  props.coins.price_change_percentage_24h_in_currency
+                )}
               </p>
-            </LargeNumberContainer>
-            <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
-              <SliderBar
-                secondColor={`${generateColors(id).color2}`}
-                width={
-                  (props.coins.total_volume / props.coins.market_cap) * 100
-                }
-              ></SliderBar>
-            </SliderBarContainer>
-          </DataTotalCoinWrapper>
-        </TableDataElement>
-        <TableDataElement>
-          <DataTotalCoinWrapper>
-            <LargeNumberContainer>
-              <p style={{ color: `${generateColors(id).color2}` }}>
-                {largeNumberFormat(
-                  props.coins.circulating_supply
-                ).toUpperCase()}
+            </TableDataInenerContainer>
+          </TableDataElement>
+        )}
+        {size.width > 540 && (
+          <TableDataElement>
+            <TableDataInenerContainer>
+              <ArrowsContainer>
+                {props.coins.price_change_percentage_7d_in_currency <= 0 ? (
+                  <ArrowDown />
+                ) : (
+                  <ArrowUp />
+                )}
+              </ArrowsContainer>
+              <p>
+                {percentageFormat(
+                  props.coins.price_change_percentage_7d_in_currency
+                )}
               </p>
-              <p style={{ color: `${generateColors(id).color1}` }}>
-                {largeNumberFormat(props.coins.total_supply).toUpperCase()}
-              </p>
-            </LargeNumberContainer>
+            </TableDataInenerContainer>
+          </TableDataElement>
+        )}
+        {size.width > 740 && (
+          <TableDataElement>
+            <DataTotalCoinWrapper>
+              <LargeNumberContainer>
+                <p style={{ color: `${generateColors(id).color2}` }}>
+                  {largeNumberFormat(props.coins.total_volume).toUpperCase()}
+                </p>
+                <p style={{ color: `${generateColors(id).color1}` }}>
+                  {largeNumberFormat(props.coins.market_cap).toUpperCase()}
+                </p>
+              </LargeNumberContainer>
+              <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
+                <SliderBar
+                  secondColor={`${generateColors(id).color2}`}
+                  width={
+                    (props.coins.total_volume / props.coins.market_cap) * 100
+                  }
+                ></SliderBar>
+              </SliderBarContainer>
+            </DataTotalCoinWrapper>
+          </TableDataElement>
+        )}
+        {size.width > 900 && (
+          <TableDataElement>
+            <DataTotalCoinWrapper>
+              <LargeNumberContainer>
+                <p style={{ color: `${generateColors(id).color2}` }}>
+                  {largeNumberFormat(
+                    props.coins.circulating_supply
+                  ).toUpperCase()}
+                </p>
+                <p style={{ color: `${generateColors(id).color1}` }}>
+                  {largeNumberFormat(props.coins.total_supply).toUpperCase()}
+                </p>
+              </LargeNumberContainer>
 
-            <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
-              <SliderBar
-                secondColor={`${generateColors(id).color2}`}
-                width={
-                  (props.coins.circulating_supply / props.coins.total_supply) *
-                  100
-                }
-              ></SliderBar>
-            </SliderBarContainer>
-          </DataTotalCoinWrapper>
-        </TableDataElement>
-        <TableDataElement>
-          <TableChart chartPrices={props.coins.sparkline_in_7d.price} />
-        </TableDataElement>
+              <SliderBarContainer firstColor={`${generateColors(id).color1}`}>
+                <SliderBar
+                  secondColor={`${generateColors(id).color2}`}
+                  width={
+                    (props.coins.circulating_supply /
+                      props.coins.total_supply) *
+                    100
+                  }
+                ></SliderBar>
+              </SliderBarContainer>
+            </DataTotalCoinWrapper>
+          </TableDataElement>
+        )}
+        {size.width > 1000 && (
+          <TableDataElement>
+            <TableChart chartPrices={props.coins.sparkline_in_7d.price} />
+          </TableDataElement>
+        )}
       </TableDataRow>
     </>
   );

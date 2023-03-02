@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const ChartsContainer = styled.div`
-  margin: 30px 58px;
+  margin: 48px 48px;
 
   @media (max-width: 1100px) {
-    margin: 25px 25px;
+    margin: 48px 25px;
   }
   @media (max-width: 600px) {
-    margin: 25px 15px;
+    margin: 48px 15px;
   }
 `;
 
 export const ChartHeader = styled.h1`
   margin-bottom: 1.5rem;
+  padding: 0px 20px;
   @media (max-width: 400px) {
     font-size: 1.5rem;
   }

@@ -13,10 +13,13 @@ import {
   LogoIcon,
 } from "./NavBarData.styled";
 import { CryptoState } from "../../../CryptoContext";
+import useWindowSize from "../../../utils/windowSize";
 
 const NavBarData = () => {
   const [data, setData] = useState([]);
   const { currency, symbol } = CryptoState();
+
+  const size = useWindowSize();
 
   const fetchCoins = async () => {
     const { data } = await axios.get(`https://api.coingecko.com/api/v3/global`);
@@ -31,31 +34,41 @@ const NavBarData = () => {
   return (
     <>
       <NavbarDataContainer>
-        <InnerContainer>
-          <InnerText>Coins {data.data?.active_cryptocurrencies}</InnerText>
-        </InnerContainer>
-        <InnerContainer>
-          <InnerText>Exchange {data.data?.markets}</InnerText>
-        </InnerContainer>
-        <InnerContainer>
-          <Dot />
-          <InnerText>
-            {symbol}
-            {largeNumberFormat(
-              data.data?.total_market_cap[currency]
-            ).toUpperCase()}
-          </InnerText>
-        </InnerContainer>
-        <InnerContainer>
-          <Dot />
-          <InnerText>
-            {symbol}
-            {largeNumberFormat(data.data?.total_volume[currency]).toUpperCase()}
-          </InnerText>
-          <SliderBarContainer>
-            <SliderBar width={largeNumberFormat(data?.data?.totalVolume)} />
-          </SliderBarContainer>
-        </InnerContainer>
+        {size.width > 800 && (
+          <InnerContainer>
+            <InnerText>Coins {data.data?.active_cryptocurrencies}</InnerText>
+          </InnerContainer>
+        )}
+        {size.width > 1000 && (
+          <InnerContainer>
+            <InnerText>Exchange {data.data?.markets}</InnerText>
+          </InnerContainer>
+        )}
+        {size.width > 1150 && (
+          <InnerContainer>
+            <Dot />
+            <InnerText>
+              {symbol}
+              {largeNumberFormat(
+                data.data?.total_market_cap[currency]
+              ).toUpperCase()}
+            </InnerText>
+          </InnerContainer>
+        )}
+        {size.width > 470 && (
+          <InnerContainer>
+            <Dot />
+            <InnerText>
+              {symbol}
+              {largeNumberFormat(
+                data.data?.total_volume[currency]
+              ).toUpperCase()}
+            </InnerText>
+            <SliderBarContainer>
+              <SliderBar width={largeNumberFormat(data?.data?.totalVolume)} />
+            </SliderBarContainer>
+          </InnerContainer>
+        )}
         <InnerContainer>
           <LogoIcon src={btcLogo} alt="bitcoin-logo" />
           <InnerText>
