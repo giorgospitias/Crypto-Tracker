@@ -30,5 +30,9 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const CoinLineChartContainer = styled.div`
-  height: 300px;
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
 `;

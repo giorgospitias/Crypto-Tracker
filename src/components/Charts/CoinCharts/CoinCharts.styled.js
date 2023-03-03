@@ -4,7 +4,7 @@ export const ChartsContainer = styled.div`
   margin: 48px 48px;
 
   @media (max-width: 1100px) {
-    margin: 48px 25px;
+    margin: 48px 15px;
   }
   @media (max-width: 600px) {
     margin: 48px 15px;

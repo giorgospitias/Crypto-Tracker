@@ -5,10 +5,16 @@ export const SummaryWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
+  margin: 0px 60px;
+  @media (max-width: 1130px) {
+    margin: 0 60px;
+    flex-wrap: wrap;
+  }
 `;
+
 export const SummuryHeader = styled.div`
-  margin: 10px 270px;
+  margin: 30px 0px;
+  text-align: center;
   font-size: 24px;
   color: ${(props) => props.theme.textColor};
 `;
@@ -23,7 +29,6 @@ export const SummaryDataContainer = styled.div`
   align-items: center;
   border-radius: 20px;
   padding: 20px 40px;
-  margin: 0 5px;
 `;
 
 export const LogoWrapper = styled.div`
@@ -128,7 +133,7 @@ export const PlasIcon = styled.span`
 export const NumberData = styled.p``;
 
 export const TotalVolume = styled.span`
-  color: #0cff66;
+  color: #00fc2a;
 `;
 export const MaxSupply = styled.span`
   color: #2751ea;

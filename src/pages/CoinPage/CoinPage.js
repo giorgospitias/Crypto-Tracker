@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CoinSummary from "../../components/CoinPage/CoinSummary/CoinSummary";
 import CoinDescription from "../../components/CoinPage/CoinDescription/CoinDescription";
 import CurrencyConverter from "../../components/CoinPage/CurrencyConverter/CurrencyConverter";
-import CoinPageChart from "../../components/CoinPage/CoinPageChart/CoinPageChart";
+import CoinPageCharts from "../../components/CoinPage/CoinPageChart/CoinPageCharts";
 import { CoinPageContainer } from "./CoinPage.styles";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -29,7 +29,7 @@ function CoinPage() {
       <CoinSummary data={data} />
       <CoinDescription data={data} />
       <CurrencyConverter data={data} />
-      <CoinPageChart id={params.id} />
+      <CoinPageCharts id={params.id} />
     </CoinPageContainer>
   );
 }

@@ -8,16 +8,19 @@ export const Container = styled.div`
   padding: 0 1em;
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.div`
   font-weight: 400;
   font-size: 1rem;
   text-align: start;
   margin-top: 2em;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
-export const Button = styled.button.attrs({
-  type: "button",
-})`
+export const Button = styled.button`
   background: #06d554;
   color: ${(props) => props.theme.textColor};
   box-shadow: none;

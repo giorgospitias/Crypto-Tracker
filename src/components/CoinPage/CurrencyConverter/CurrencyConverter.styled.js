@@ -32,7 +32,7 @@ export const ConvertImage = styled.img`
 
 export const Symbol = styled.h3`
   height: 100%;
-  background-color: #00d93b;
+  background-color: #00fc2a;
   font-weight: bold;
   padding: 7px 10px;
 `;

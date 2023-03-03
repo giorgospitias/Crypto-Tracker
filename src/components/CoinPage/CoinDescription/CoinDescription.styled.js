@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const DescriptionContainer = styled.div`
-  margin: 10px 200px;
+  max-width: 1120px;
+  margin: 0 auto;
 `;
 
 export const DescriptionTitle = styled.div`
-  margin: 10px 70px;
+  margin: 30px 0px;
+  text-align: center;
   font-size: 24px;
   color: ${(props) => props.theme.textColor};
 `;
@@ -19,6 +21,10 @@ export const DescriptionWrapper = styled.div`
   padding: 20px 40px;
   font-size: 12px;
   margin: 0px 60px;
+
+  @media (max-width: 1130px) {
+    margin: 0px 100px;
+  }
 `;
 
 export const DescriptionParagraph = styled.p`
@@ -38,6 +44,10 @@ export const LinksContainer = styled.div`
   justify-content: space-between;
   font-size: 12px;
   margin: 20px 60px;
+
+  @media (max-width: 1130px) {
+    margin: 20px 100px;
+  }
 `;
 
 export const LinkWrapper = styled.div`
@@ -71,6 +81,6 @@ export const LinkText = styled.p`
 `;
 
 export const ReadMore = styled.span`
-  color: #06d554;
+  color: #00fc2a;
   cursor: pointer;
 `;

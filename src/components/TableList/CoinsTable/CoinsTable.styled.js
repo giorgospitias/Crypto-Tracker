@@ -54,8 +54,6 @@ export const TableHeaderTextSmall = styled.span`
 export const DataTableContainer = styled.table`
   width: 100%;
   font-size: 12px;
-
-  margin-top: 0;
   padding: 20px;
   height: 100px;
   text-align: left;
