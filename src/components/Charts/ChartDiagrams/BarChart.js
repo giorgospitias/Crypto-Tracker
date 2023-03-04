@@ -5,13 +5,17 @@ import CoinCharts from "../CoinCharts/CoinCharts";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Oval } from "react-loader-spinner";
+import { CoinChartDate } from "../../../utils/currentDate";
 import { LoaderContainer } from "../../TableList/CoinsTable/CoinsTable.styled";
 
 function BarChart({ data, loading }) {
   const chartMarketVolumes = data?.total_volumes?.map((el) => el[1]);
-  const chartLabelDates = data?.total_volumes?.map((el) =>
-    new Date(el[0]).getDate()
-  );
+  const chartLabelDates = data?.total_volumes?.map((el) => {
+    let date = new Date(el[0]);
+    const formattedDate = CoinChartDate(date);
+
+    return formattedDate;
+  });
   const options = {
     responsive: true,
     plugins: {

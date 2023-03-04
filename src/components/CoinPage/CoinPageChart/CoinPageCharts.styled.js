@@ -34,5 +34,6 @@ export const CoinLineChartContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px auto;
+  margin: 100px auto;
+  padding-bottom: 100px;
 `;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { chartDays } from "../../Charts/ChartDaysSelector/ChartDaysSelector";
+import { CoinChartDate } from "../../../utils/currentDate";
 import { CryptoState } from "../../../CryptoContext";
 import {
   ButtonsContainer,
@@ -28,20 +29,19 @@ function CoinPageChart({ id }) {
 
   let priceList = chartData?.prices?.map((coin) => coin[1]);
 
-  let labels = priceList?.map((price) => {
-    let date = new Date(price[0]);
-    let time =
-      date.getHours() > 12
-        ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-        : `${date.getHours()}:${date.getMinutes()} AM`;
-    return coindays === 1 ? time : date.toLocaleDateString();
+  let labels = chartData?.prices?.map((coin) => {
+    let date = new Date(coin[0]);
+    const formattedDate = CoinChartDate(date);
+
+    return formattedDate;
   });
 
+  console.log(priceList);
   const backgroundColor = (context) => {
     const ctx = context.chart.ctx;
-    const gradient = ctx.createLinearGradient(0, 0, 0, 210);
-    gradient.addColorStop(1, "rgba(0, 0, 0, 0.0)");
-    gradient.addColorStop(0, "rgba(44, 47, 54, .5)");
+    const gradient = ctx.createLinearGradient(0, 0, 0, 450);
+    gradient.addColorStop(0, "rgba(0, 255, 95, .5)");
+    gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
     return gradient;
   };
 
@@ -53,6 +53,9 @@ function CoinPageChart({ id }) {
         label: `Price ( Past ${coindays} Days ) in ${currency}`,
         borderColor: "#00fc2a",
         backgroundColor: backgroundColor,
+        pointBackgroundColor: "#00fc2a",
+        fill: true,
+        tension: 0.1,
       },
     ],
   };

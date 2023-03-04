@@ -6,3 +6,23 @@ export const currentDate = () => {
 
   return `${yyyy}-${mm}-${dd}`;
 };
+
+export function CoinChartDate(date) {
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const monthIndex = date.getMonth();
+  const day = date.getDate();
+  return monthNames[monthIndex] + "/" + day;
+}

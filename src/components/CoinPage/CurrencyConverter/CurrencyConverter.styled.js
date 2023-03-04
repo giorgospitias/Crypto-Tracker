@@ -4,6 +4,7 @@ export const ConvertContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 export const ConvertInnerContainer = styled.div`

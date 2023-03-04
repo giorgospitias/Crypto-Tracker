@@ -12,13 +12,18 @@ import {
   Filler,
 } from "chart.js";
 import { Oval } from "react-loader-spinner";
+import { CoinChartDate } from "../../../utils/currentDate";
 import { LoaderContainer } from "../../TableList/CoinsTable/CoinsTable.styled";
 
 function LineChart({ data, loading }) {
   const chartMarket = data?.prices?.map((el) => el[1]);
-  const chartLabel = data?.total_volumes?.map((el) =>
-    new Date(el[0]).getDate()
-  );
+  const chartLabel = data?.prices?.map((el) => {
+    let date = new Date(el[0]);
+    const formattedDate = CoinChartDate(date);
+
+    return formattedDate;
+  });
+
   const options = {
     responsive: true,
     plugins: {
@@ -93,7 +98,7 @@ function LineChart({ data, loading }) {
 
   const canvas = document.createElement("canvas");
   const coinData = createCanvas(canvas);
-
+  console.log(chartMarket);
   return (
     <ChartContainer>
       {loading ? (
