@@ -1,5 +1,5 @@
-import "./App.css";
 import React, { useState } from "react";
+import "./App.css";
 import GlobalStyles from "./styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { Routes, Route } from "react-router-dom";

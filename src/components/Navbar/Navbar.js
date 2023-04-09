@@ -8,7 +8,6 @@ import {
   NavLeftSide,
   NavRightSide,
   ThemeIconContainer,
-  DropdownWrapper,
   DropdownContainer,
   DropdownCurrencyWrapper,
   DropdownCurrencyList,
@@ -29,7 +28,7 @@ import ThemeIcon from "../../assets/ThemeIcon";
 import { CryptoState } from "../../CryptoContext";
 
 const Navbar = (props) => {
-  const { currency, setCurrency, symbol } = CryptoState();
+  const { currency, symbol } = CryptoState();
   const [currencyList, setCurrencyList] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
