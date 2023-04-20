@@ -2,13 +2,22 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 const Crypto = createContext();
 
+const getInitialState = () => {
+  const localData = localStorage.getItem("coin");
+  return localData ? JSON.parse(localData) : [];
+};
+
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState("eur");
   const [symbol, setSymbol] = useState("€");
   const [loading, setLoading] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [days, setDays] = useState(30);
-  const [selectedCoinData, setSelectedCoinData] = useState([]);
+  const [selectedCoinData, setSelectedCoinData] = useState(getInitialState);
+
+  useEffect(() => {
+    localStorage.setItem("coin", JSON.stringify(selectedCoinData));
+  }, [selectedCoinData]);
 
   useEffect(() => {
     if (currency === "gbp") setSymbol("£");
